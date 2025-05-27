@@ -1,0 +1,15 @@
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\bin\Debug\net8.0\SimpleConsoleCalculator.exe
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\bin\Debug\net8.0\SimpleConsoleCalculator.deps.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\bin\Debug\net8.0\SimpleConsoleCalculator.runtimeconfig.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\bin\Debug\net8.0\SimpleConsoleCalculator.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\bin\Debug\net8.0\SimpleConsoleCalculator.pdb
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.AssemblyInfoInputs.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.AssemblyInfo.cs
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.csproj.CoreCompileInputs.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.sourcelink.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\refint\SimpleConsoleCalculator.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.pdb
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\SimpleConsoleCalculator.genruntimeconfig.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\SimpleConsoleCalculator\obj\Debug\net8.0\ref\SimpleConsoleCalculator.dll
