@@ -1,0 +1,15 @@
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\bin\Debug\net8.0\simpleCollectionCRUD.exe
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\bin\Debug\net8.0\simpleCollectionCRUD.deps.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\bin\Debug\net8.0\simpleCollectionCRUD.runtimeconfig.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\bin\Debug\net8.0\simpleCollectionCRUD.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\bin\Debug\net8.0\simpleCollectionCRUD.pdb
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.AssemblyInfoInputs.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.AssemblyInfo.cs
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.csproj.CoreCompileInputs.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.sourcelink.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\refint\simpleCollectionCRUD.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.pdb
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\simpleCollectionCRUD.genruntimeconfig.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\simpleCollectionCRUD\obj\Debug\net8.0\ref\simpleCollectionCRUD.dll
