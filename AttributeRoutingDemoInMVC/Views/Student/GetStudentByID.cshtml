@@ -1,0 +1,23 @@
+﻿@model AttributeRoutingDemoInMVC.Models.Student
+@{
+    ViewBag.Title = "GetStudentByID";
+}
+<h2>GetStudentByID</h2>
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+    </dl>
+</div>
