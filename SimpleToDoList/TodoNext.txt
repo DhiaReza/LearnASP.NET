@@ -1,0 +1,4 @@
+1. Make Edit View
+2. Make edit API
+3. make edit view looks good
+4. center input form in index

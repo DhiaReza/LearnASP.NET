@@ -1,0 +1,130 @@
+﻿html {
+    background-color: lightblue;
+    color: white;
+    min-height: 100%;
+    color: #2d3748;
+}
+
+body {
+
+}
+
+.action-button{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-top: 0.3em;
+    gap:0.4em;
+}
+
+.title {
+    text-align: center;
+}
+
+.box-item {
+    border: 0.1em solid red;
+    border-radius: 0.5em;
+    padding: 0.4em;
+    max-width: 20em;
+    background-color: #ff7a7a;
+}
+
+.container-item {
+    display: grid;
+    grid-gap: 0.5em;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+
+}
+
+.container-form {
+    align-items: center;
+    padding:1em;
+    flex-direction: row;
+    gap: 15px;
+    display: flex;
+}
+
+@media only screen and (max-width : 319px) {
+    .container-item {
+        display: grid;
+        grid-template-columns: auto;
+        border: 1em, solid red;
+    }
+
+    .container-form {
+        flex-direction: row;
+        gap: 15px;
+        display: flex;
+    }
+}
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+    .container-item {
+        display: grid;
+        grid-template-columns: auto auto;
+        border: 1em, solid red;
+    }
+
+    .container-form {
+        flex-direction: row;
+        gap: 15px;
+        display: flex;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+    .container-item {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .container-form {
+        flex-direction: row;
+        gap: 15px;
+        display: flex;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .container-item {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .container-form {
+        flex-direction: row;
+        gap: 15px;
+        display: flex;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .container-item {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .container-form {
+        flex-direction: row;
+        gap: 15px;
+        display: flex;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .container-item {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+    }
+
+    .container-form {
+        flex-direction: row;
+        gap: 15px;
+        display: flex;
+    }
+}

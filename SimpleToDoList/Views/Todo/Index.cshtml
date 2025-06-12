@@ -1,0 +1,110 @@
+﻿
+@{
+    var title = ViewBag.Title;
+    @model IEnumerable<SimpleToDoList.Models.ToDoItem>
+}
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, length=device-length" />
+
+        <title>@title</title>
+        <link rel="stylesheet" href="~/css/Todo/Index.css">
+    </head>
+    <body>
+        <div class="title">
+            <h3>
+                THIS IS A SIMPLE TO DO LIST
+            </h3>
+        </div>
+        <div class="container-form">
+            <form id="createForm">
+                <div>
+                    <label for="Name">Name</label>
+                    <input type="text" id="Name" name="Name" />
+                </div>
+
+                <div>
+                    <label for="Description">Description</label>
+                    <input type="text" id="Description" name="Description" />
+                </div>
+                <div class ="action-button">
+                    <button type="button" onclick="createItem()">Add</button>
+                </div>
+            </form>
+        </div>
+        <div class="container-item">
+            @foreach(var item in Model){
+                <div class="box-item">
+                    <div>@item.Name</div>
+                    <div>@item.DateCreated.ToString("d MMMM, yyyy")</div>
+                    <div>@item.Description</div>
+                    <div>@(item.IsComplete ? "Done" : "Not Done")</div>
+                        <div class="action-button">
+                            <button type="button" onclick="changeStatus(@item.ToDoId)">Change Mark</button>
+                            <button type="button" onclick="editView(@item.ToDoId)">Edit</button>
+                            <button type="button" onclick="deleteItem(@item.ToDoId)">Delete</button>
+                        </div>
+                </div>
+            }
+        </div>
+    </body>
+</html>
+
+<script>
+    function changeStatus(id) {
+        fetch('/Todo/ChangeStatus/' + id, {
+            method: 'PUT'
+        })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
+        });
+    }
+        function deleteItem(id) {
+        fetch('/Todo/DeleteItem/' + id, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
+        });
+    }
+    function editView(id){
+        fetch('/Todo/EditView/' + id, {
+            method:'GET'
+        })
+        .then(response => {
+            if(response.url){
+                window.location.href = response.url;
+            }
+        });
+    }
+    function createItem(){
+        const item = {
+            Name: document.getElementById("Name").value,
+            Description: document.getElementById("Description").value
+        };
+
+        fetch("/Todo/CreateItem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(item)
+        })
+        .then(response => {
+            if (response.ok) {
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else 
+                    return response.text().then(errorText => {
+                    document.getElementById("resultMessage").textContent = "Error: " + errorText;
+                });
+            }
+        });
+    }
+</script>
