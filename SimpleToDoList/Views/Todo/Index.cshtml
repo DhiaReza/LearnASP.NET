@@ -15,38 +15,43 @@
     <body>
         <div class="title">
             <h3>
-                THIS IS A SIMPLE TO DO LIST
+                @title
             </h3>
         </div>
         <div class="container-form">
-            <form id="createForm">
+            <form id="createForm" class="form">
                 <div>
-                    <label for="Name">Name</label>
-                    <input type="text" id="Name" name="Name" />
+                    <input type="text" id="Name" name="Name" placeholder="Task Name..."/>
                 </div>
-
                 <div>
-                    <label for="Description">Description</label>
-                    <input type="text" id="Description" name="Description" />
+                    <textarea id="Description" name="Description" placeholder="Task Description..."></textarea>
                 </div>
-                <div class ="action-button">
+                <div>
                     <button type="button" onclick="createItem()">Add</button>
                 </div>
+                <div id="resultMessage"></div>
             </form>
         </div>
         <div class="container-item">
             @foreach(var item in Model){
                 <div class="box-item">
-                    <div>@item.Name</div>
-                    <div>@item.DateCreated.ToString("d MMMM, yyyy")</div>
-                    <div>@item.Description</div>
-                    <div>@(item.IsComplete ? "Done" : "Not Done")</div>
+                    <div id="item-name">@item.Name</div>
+                    <div id="item-date">📅@item.DateCreated.ToString("d MMMM, yyyy")</div>
+                    <div id="item-description">@item.Description</div>
+                    <div id="item-state">@(item.IsComplete ? "Finish" : "Unfinished")</div>
+                    <div style="height: 2em;"></div>
                         <div class="action-button">
-                            <button type="button" onclick="changeStatus(@item.ToDoId)">Change Mark</button>
-                            <button type="button" onclick="editView(@item.ToDoId)">Edit</button>
-                            <button type="button" onclick="deleteItem(@item.ToDoId)">Delete</button>
+                            <div>
+                                <button class="button" type="button" onclick="changeStatus(@item.ToDoId)">@(item.IsComplete ? "Unfinish" : "Finish")</button>
+                            </div>
+                            <div>
+                                <button class="button" type="button" onclick="editView(@item.ToDoId)">Edit</button>
+                            </div>
+                            <div>
+                                <button class="button" type="button" onclick="deleteItem(@item.ToDoId)">Delete</button>
+                            </div>
                         </div>
-                </div>
+                    </div>
             }
         </div>
     </body>
@@ -83,28 +88,44 @@
             }
         });
     }
-    function createItem(){
-        const item = {
-            Name: document.getElementById("Name").value,
-            Description: document.getElementById("Description").value
-        };
+function createItem() {
+    const nameInput = document.getElementById("Name");
+    const descriptionInput = document.getElementById("Description");
+    const resultMessage = document.getElementById("resultMessage");
 
-        fetch("/Todo/CreateItem", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(item)
-        })
-        .then(response => {
-            if (response.ok) {
-                if (response.redirected) {
-                    window.location.href = response.url;
-                } else 
-                    return response.text().then(errorText => {
-                    document.getElementById("resultMessage").textContent = "Error: " + errorText;
-                });
-            }
-        });
+    const name = nameInput.value.trim();
+    const description = descriptionInput.value.trim();
+
+    if (name === "" || description === "") {
+        resultMessage.textContent = "Please fill out both fields.";
+        return;
     }
+
+    const item = {
+        Name: name,
+        Description: description
+    };
+
+    fetch("/Todo/CreateItem", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(item)
+    })
+    .then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+        } else {
+            return response.text().then(errorText => {
+                console.error("Error:", errorText);
+                resultMessage.textContent = "Error: " + errorText;
+            });
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error.message);
+        resultMessage.textContent = "Error: " + error.message;
+    });
+}
 </script>

@@ -18,7 +18,7 @@ namespace SimpleToDoList.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.Title = "This is a simple todo list";
+            ViewBag.Title = "THIS IS A SIMPLE TASK LIST";
             var todoitem = _context.ToDoName.ToList();
             //foreach (var item in todoitem)
             //{
@@ -30,8 +30,11 @@ namespace SimpleToDoList.Controllers
         [HttpPost]
         public IActionResult CreateItem([FromBody] ToDoItem item)
         {
-            _logger.LogInformation($"name = {item.Name}, {item.Description}");
-            if (ModelState.IsValid && item.Name != null && item.Name != "" && item.Description != null && item.Description != "")
+            _logger.LogInformation("Received item - Name: {Name}, Description: {Description}", item.Name, item.Description);
+
+            if (ModelState.IsValid && 
+                !string.IsNullOrWhiteSpace(item.Name) && 
+                !string.IsNullOrWhiteSpace(item.Description))
             {
                 _context.ToDoName.Add(item);
                 _context.SaveChanges();
@@ -39,9 +42,8 @@ namespace SimpleToDoList.Controllers
             }
             else
             {
-                return BadRequest("Name and description are both required, please fill both");
+                return BadRequest("Name and Description are both required. Please fill out both fields.");
             }
-
         }
         [HttpGet]
         public IActionResult EditView(int id)
