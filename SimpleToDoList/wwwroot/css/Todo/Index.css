@@ -1,5 +1,5 @@
 ﻿html {
-    background-color: lightblue;
+    background-color: #687FE5;
     color: white;
     min-height: 100%;
     color: #2d3748;
@@ -7,6 +7,8 @@
 
 .title {
     text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 #item-name{
     font-weight: bold;
@@ -16,12 +18,12 @@
     font-size:0.8rem;
 }
 .box-item {
-    border: 0.1em solid red;
+    border: 0.1em solid #EBD6FB;
     border-radius: 0.5em;
     padding: 0.4em;
     min-width: 100%;
     box-sizing: border-box;
-    background-color: #ff7a7a;
+    background-color: #FEEBF6;
     position: relative;
     word-wrap: break-word
 }
@@ -44,28 +46,50 @@
 
 .container-form{
     justify-content: center;
-    background-color: #ff7a7a;
+    background-color: #FEEBF6;
     padding:0.5em;
-    border: 0.1em solid red;
+    border: 0.1em solid #EBD6FB;
     border-radius: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.3em;
 }
-
+.form{
+    display: flex;
+    justify-content: center;
+}
 #Name{
-min-height: 1em;
-max-width: 10em;
+    min-height: 1em;
+    width: 100%
 }
 #Description{
     min-height: 2em;
     max-width: 10em;
+    width: 100%
+}
+#FormButton{
+    width: 100%
+}
+#button{
+    flex-grow: 1;
+}
+#text{
+    flex-grow: 1;
+}
+#description{
+    flex-grow: 3;
 }
 
 @media only screen and (max-width : 319px) {
     .container-item {
         display: grid;
-        grid-template-columns:repeat();
+        grid-template-columns:repeat(1,1fr);
         border: 1em, solid red;
     }
-
+    .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
@@ -73,6 +97,11 @@ max-width: 10em;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         border: 1em, solid red;
+    }
+    .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
 
 }
@@ -83,6 +112,11 @@ max-width: 10em;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
+    .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
 
 }
 
@@ -92,7 +126,11 @@ max-width: 10em;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
-
+    .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
 }
 
 /* Medium Devices, Desktops */
@@ -105,6 +143,11 @@ max-width: 10em;
         padding:1em;
         padding-left: 1.5em;
         padding-right:1.5em;
+    }
+        .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
     }
 }
 
@@ -119,5 +162,10 @@ max-width: 10em;
         padding:1em;
         padding-left: 1.5em;
         padding-right:1.5em;
+    }
+        .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
     }
 }

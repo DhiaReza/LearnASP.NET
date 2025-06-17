@@ -20,18 +20,19 @@
         </div>
         <div class="container-form">
             <form id="createForm" class="form">
-                <div>
+                <div id="text">
                     <input type="text" id="Name" name="Name" placeholder="Task Name..."/>
                 </div>
-                <div>
+                <div id="description">
                     <textarea id="Description" name="Description" placeholder="Task Description..."></textarea>
                 </div>
-                <div>
-                    <button type="button" onclick="createItem()">Add</button>
+                <div id="button">
+                    <button id="FormButton" type="button" onclick="createItem()">Add</button>
                 </div>
-                <div id="resultMessage"></div>
+                
             </form>
         </div>
+        <div id="resultMessage"></div>
         <div class="container-item">
             @foreach(var item in Model){
                 <div class="box-item">
