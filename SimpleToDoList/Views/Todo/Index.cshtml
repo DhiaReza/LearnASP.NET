@@ -39,7 +39,9 @@
                     <div id="item-name">@item.Name</div>
                     <div id="item-date">📅@item.DateCreated.ToString("d MMMM, yyyy")</div>
                     <div id="item-description">@item.Description</div>
-                    <div id="item-state">@(item.IsComplete ? "Finish" : "Unfinished")</div>
+                    <div id="item-state" class="@(item.IsComplete ? "Finished" : "Unfinished")">
+                        @(item.IsComplete ? "Finished" : "Unfinished")
+                    </div>
                     <div style="height: 2em;"></div>
                         <div class="action-button">
                             <div>
