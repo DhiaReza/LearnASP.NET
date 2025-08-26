@@ -31,6 +31,16 @@
     flex-direction: column;
 }
 
+.box-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.box-box-modal {
+    display: flex;
+    flex-direction: column;
+}
+
 .action-button{
     display: flex;
     gap: 0.4em;
@@ -204,7 +214,7 @@
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #FEEBF6;
     margin: 10% auto;
     padding: 20px;
     border-radius: 8px;
@@ -214,6 +224,6 @@
 
 .close-button {
     float: right;
-    font-size: 20px;
+    font-size: 2em;
     cursor: pointer;
 }

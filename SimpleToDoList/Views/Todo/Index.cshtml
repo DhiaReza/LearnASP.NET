@@ -62,16 +62,19 @@
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
             <h2>Edit Item</h2>
+            <div class="box-modal">
             <input type="hidden" id="edit-id" />
-            <div>
-                <label>Name:</label>
+            <div class="box-box-modal">
+                <label>New Name</label>
                 <input type="text" id="edit-name" />
+                
             </div>
-            <div>
-                <label>Description:</label>
+            <div class="box-box-modal">
+                <label>New Description</label>
                 <textarea id="edit-description"></textarea>
             </div>
             <button onclick="saveChanges()">Save</button>
+            </div>
         </div>
     </div>
 </div>
@@ -81,11 +84,10 @@
     function changeStatus(id) {
         fetch('/Todo/ChangeStatus/' + id, {
             method: 'PUT'
-            
         })
-        console.log(id)
         .then(response => {
             if (response.redirected) {
+                console.log("Changed : ",id, "Status")
                 window.location.href = response.url;
             }
         });
