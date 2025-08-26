@@ -48,7 +48,7 @@
                                 <button class="button" type="button" onclick="changeStatus(@item.ToDoId)">@(item.IsComplete ? "Unfinish" : "Finish")</button>
                             </div>
                             <div>
-                                <button class="button" type="button" onclick="editView(@item.ToDoId)">Edit</button>
+                                <button class="button" type="button" data-id="@item.ToDoId" data-name="@item.Name" data-desc="@item.Description" onclick="openModal(this)">Edit</button>
                             </div>
                             <div>
                                 <button class="button" type="button" onclick="deleteItem(@item.ToDoId)">Delete</button>
@@ -58,13 +58,32 @@
             }
         </div>
     </body>
+    <div id="modalWindow" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Edit Item</h2>
+            <input type="hidden" id="edit-id" />
+            <div>
+                <label>Name:</label>
+                <input type="text" id="edit-name" />
+            </div>
+            <div>
+                <label>Description:</label>
+                <textarea id="edit-description"></textarea>
+            </div>
+            <button onclick="saveChanges()">Save</button>
+        </div>
+    </div>
+</div>
 </html>
 
 <script>
     function changeStatus(id) {
         fetch('/Todo/ChangeStatus/' + id, {
             method: 'PUT'
+            
         })
+        console.log(id)
         .then(response => {
             if (response.redirected) {
                 window.location.href = response.url;
@@ -91,44 +110,93 @@
             }
         });
     }
-function createItem() {
-    const nameInput = document.getElementById("Name");
-    const descriptionInput = document.getElementById("Description");
-    const resultMessage = document.getElementById("resultMessage");
+    function createItem() {
+        const nameInput = document.getElementById("Name");
+        const descriptionInput = document.getElementById("Description");
+        const resultMessage = document.getElementById("resultMessage");
 
-    const name = nameInput.value.trim();
-    const description = descriptionInput.value.trim();
+        const name = nameInput.value.trim();
+        const description = descriptionInput.value.trim();
 
-    if (name === "" || description === "") {
-        resultMessage.textContent = "Please fill out both fields.";
-        return;
+        if (name === "" || description === "") {
+            resultMessage.textContent = "Please fill out both fields.";
+            return;
+        }
+
+        const item = {
+            Name: name,
+            Description: description
+        };
+
+        fetch("/Todo/CreateItem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(item)
+        })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else {
+                return response.text().then(errorText => {
+                    console.error("Error:", errorText);
+                    resultMessage.textContent = "Error: " + errorText;
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error.message);
+            resultMessage.textContent = "Error: " + error.message;
+        });
     }
 
-    const item = {
-        Name: name,
-        Description: description
-    };
+    function openModal(button) {
+        const id = button.getAttribute("data-id");
+        const name = button.getAttribute("data-name");
+        const desc = button.getAttribute("data-desc");
 
-    fetch("/Todo/CreateItem", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(item)
-    })
-    .then(response => {
-        if (response.redirected) {
-            window.location.href = response.url;
-        } else {
-            return response.text().then(errorText => {
-                console.error("Error:", errorText);
-                resultMessage.textContent = "Error: " + errorText;
-            });
+        console.log("Opening modal with:", {id, name, desc});
+
+        document.getElementById("edit-id").value = id;
+        document.getElementById("edit-name").value = name;
+        document.getElementById("edit-description").value = desc;
+        document.getElementById("modalWindow").style.display = "block";
+    }
+
+    function saveChanges() {
+        const updatedData = {
+            ToDoId: document.getElementById("edit-id").value,
+            Name: document.getElementById("edit-name").value,
+            Description: document.getElementById("edit-description").value
+        };
+        console.log("Sending to backend:", updatedData);
+        console.log("JSON payload:", JSON.stringify(updatedData));
+
+        fetch(`/ToDo/EditItem/`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedData)
+        })
+        .then(response => {
+            if (response.ok) {
+                location.reload(); // refresh page to see updated data
+            } else {
+                alert(response.statusText);
+            }
+        });
+    }
+
+    function closeModal() {
+        document.getElementById("modalWindow").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("modalWindow");
+        if (event.target === modal) {
+            modal.style.display = "none";
         }
-    })
-    .catch(error => {
-        console.error("Error:", error.message);
-        resultMessage.textContent = "Error: " + error.message;
-    });
-}
+    }
 </script>

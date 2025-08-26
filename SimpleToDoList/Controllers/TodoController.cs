@@ -20,11 +20,6 @@ namespace SimpleToDoList.Controllers
         {
             ViewBag.Title = "THIS IS A SIMPLE TASK LIST";
             var todoitem = _context.ToDoName.ToList();
-            //foreach (var item in todoitem)
-            //{
-            //    _logger.LogInformation("ToDoItem - Id: {Id}, Name: {Name}, Description: {Description}, Status: {Status}, DateCreated: {DateCreated}",
-            //        item.ToDoId, item.Name, item.Description, item.IsComplete, item.DateCreated);
-            //}
             return View(todoitem);
         }
         [HttpPost]
@@ -58,11 +53,33 @@ namespace SimpleToDoList.Controllers
                 return NotFound();
             }
         }
+
         [HttpPut]
-        public IActionResult EditItem(int id)
+        public IActionResult EditItem([FromBody] ToDoItem item)
         {
-            // edit logic here
-            return View();
+            if (item == null)
+            {
+                _logger.LogWarning("EditItem received null item.");
+                return BadRequest("Invalid data received");
+            }
+
+            _logger.LogInformation(
+                "Received EditItem request: ToDoId={ToDoId}, Name={Name}, Description={Description}",
+                item.ToDoId, item.Name, item.Description
+            );
+
+            var todoitem = _context.ToDoName.Find(item.ToDoId);
+            if (todoitem == null)
+            {
+                return NotFound();
+            }
+
+            todoitem.Name = item.Name;
+            todoitem.Description = item.Description;
+            todoitem.DateCreated = DateTime.Now;
+
+            _context.SaveChanges();
+            return Ok(todoitem);
         }
         [HttpDelete]
         public IActionResult DeleteItem(int id)
