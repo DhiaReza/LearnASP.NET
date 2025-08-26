@@ -1,0 +1,98 @@
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\appsettings.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\Bookstore MVC.staticwebassets.runtime.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\Bookstore MVC.staticwebassets.endpoints.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\Bookstore MVC.exe
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\Bookstore MVC.deps.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\Bookstore MVC.runtimeconfig.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\Bookstore MVC.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\bin\Debug\net9.0\Bookstore MVC.pdb
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.AssemblyInfoInputs.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.AssemblyInfo.cs
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.csproj.CoreCompileInputs.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.RazorAssemblyInfo.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.RazorAssemblyInfo.cs
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.sourcelink.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\scopedcss\bundle\Bookstore MVC.styles.css
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\scopedcss\projectbundle\Bookstore MVC.bundle.scp.css
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\6pad4h7hpn-b9sayid5wm.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\4jpkltnd26-61n19gt1b8.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\ttn5pxhlnz-xtxxf3hu2r.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\cyis44oyub-bqjiyaj88i.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\pqugr2yim1-c2jlpeoesf.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\il1rsrb9rp-erw9l3u2r3.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\pi85slrv8m-aexeepp0ev.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\pt0ra0mbmr-d7shbmvgxk.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\96ghwzaz65-ausgxo2sd3.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\oxlf2joimy-k8d9w2qqmf.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\2y1mhupm5p-cosvhxvwiu.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\y9fhurnjii-ub07r2b239.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\3txdkk7n4p-fvhpjtyr6v.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\uhec5jiku0-b7pk76d08c.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\bs3g2cxanf-fsbi9cje9m.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\d4xoee1qf4-rzd6atqjts.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\za1uwm1ly0-ee0r1s7dh0.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\nm8xcvn9xn-dxx9fxp4il.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\2gggd8pba5-jd9uben2k1.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\j0w1ra8uz3-khv3u5hwcm.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\nrmfwmce0r-r4e9w2rdcm.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\2ffoqgaonu-lcd1t2u6c8.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\ja68i9w70z-c2oey78nd0.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\gsh8ybjjue-tdbxkamptv.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\xbcrjyvly5-j5mq2jizvt.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\f26s7acyxg-06098lyss8.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\d5h4tem8d6-nvvlpmu67g.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\jxda90geyu-s35ty4nyc5.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\wse5m2jsf3-pj5nd1wqec.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\jvx06m7oip-46ein0sx1k.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\42jj053u55-v0zj4ognzu.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\87nbzpa3gn-37tfw0ft22.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\8eiugnfwo2-hrwsygsryq.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\mp89m549r2-pk9g2wxc8p.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\ect2fygko6-ft3s53vfgj.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\wrmqmb0uqv-6cfz1n2cew.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\yfj1lo0uxg-6pdc2jztkx.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\ef7ooao7jj-493y06b0oq.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\yugij28jup-iovd86k7lj.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\7648vzyb4c-vr1egmr9el.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\umc30c3d1l-kbrnm935zg.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\qd75sbymrv-jj8uyg4cgr.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\ch68esg5zz-y7v9cxd14o.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\8clhk0m0th-notf2xhcfb.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\u56uvxnduc-h1s4sie4z3.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\wsomaiirfm-63fj8s7r0e.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\xi08m7l24q-0j3bgjxly4.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\pl5xpmp7kk-47otxtyo56.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\pw4ol4s56g-4v8eqarkd7.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\ckt86anbmp-356vix0kms.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\bf5u3m7zo6-83jwlth58m.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\5yku82jsql-mrlpezrjn3.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\dg9vfr9tyw-lzl9nlhx6b.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\gkqshbm371-ag7o75518u.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\mf7vyvomn9-x0q3zqp4vz.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\q9bay962ty-0i3buxo5is.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\r24x4xg9dg-o1o13a6vjx.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\2ft7i8w7ec-ttgo8qnofa.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\oiupb9q03d-2z0ns9nrw6.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\64kwrlzgor-muycvpuwrr.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\9sh02845mo-87fc7y1x7t.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\fr9qlutbxl-mlv21k5csn.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\sx84oke3yd-0y4lw6d7i6.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\compressed\t51euulcjw-0y4lw6d7i6.gz
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets\msbuild.Bookstore MVC.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets\msbuild.Bookstore MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets\msbuild.build.Bookstore MVC.props
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Bookstore MVC.props
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Bookstore MVC.props
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\refint\Bookstore MVC.dll
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.pdb
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\Bookstore MVC.genruntimeconfig.cache
+C:\Users\fahre\Documents\Perkuliahan\Personal Projects\LearnASP.NET\Bookstore MVC\obj\Debug\net9.0\ref\Bookstore MVC.dll
