@@ -15,4 +15,4 @@
 
 What to do next :
 1. Clean the default template project
-2. Starts with Step Number 1
+2. Starts with Step Number 3
