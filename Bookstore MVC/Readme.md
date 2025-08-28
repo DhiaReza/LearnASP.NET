@@ -13,6 +13,8 @@
 | 10 | Readme |	How to run, add dummy data, test admin area |
 | 11 | Folder |	Areas/Admin/Controllers/, Areas/Admin/Views/ etc. |
 
+
+
 What to do next :
-1. Clean the default template project
-2. Starts with Step Number 3
+1. Test the APIs via postman
+2. create view
