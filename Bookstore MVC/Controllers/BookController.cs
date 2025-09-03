@@ -1,40 +1,84 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bookstore_MVC.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bookstore_MVC.Controllers;
-[ApiController]
-public class HomeController : Controller
+public class BookController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<BookController> _logger;
     private readonly AppDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger, AppDbContext context)
+    public BookController(ILogger<BookController> logger, AppDbContext context)
     {
         _logger = logger;
         _context = context;
     }
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var books = _context.Book.ToList();
-        return View(books);
+        var books = await _context.Book.ToListAsync();
+
+        if (!books.Any())
+        {
+            _logger.LogInformation("Book is Empty");
+            // You could return a view that shows “No books found” or redirect elsewhere.
+            return View(Enumerable.Empty<Book>());   // an empty list still satisfies the model
+        }
+
+        _logger.LogInformation($"sending {books.Count} books");
+        return View(books);     // <-- passes List<Book> to the view
     }
+    [HttpGet]
+    public IActionResult Details([FromRoute] int id)
+    {
+        var book = BookDetails(id);
+        _logger.LogInformation($"Opening book details of {book}");
+        return View(book);
+    }
+    public IActionResult Add()
+    {
+        return View();
+    }
+
+    // Tested, returns all books listed, return emprty if empty
+    [HttpGet]
+    public async Task<IActionResult> GetBooks()
+    {
+        var books = await _context.Book.ToListAsync();
+        if (books.Count == 0)
+        {
+            _logger.LogInformation("Book is Empty");
+            return Ok("Book Is Empty");
+        }
+        _logger.LogInformation($"sending {books.Count} books");
+        return Ok(books);
+    }
+
+    // Tested, all possible return tested correctly
     [HttpPost]
-    public async Task<ActionResult> AddBook([FromBody] Book bookdata)
+    public async Task<ActionResult> Add(Book bookdata)
     {
         if (!ModelState.IsValid)
         {
-            _logger.LogWarning("Model is not valid");
-            var book = _context.Book.ToList();
-            return View("Index", book);
+            foreach (var entry in ModelState.Where(e => e.Value.Errors.Count > 0))
+            {
+                foreach (var error in entry.Value.Errors)
+                {
+                    _logger.LogWarning("Validation error on field '{Field}': {ErrorMessage}", entry.Key, error.ErrorMessage);
+                }
+            }
+            return View(bookdata);
         }
+        _logger.LogInformation($"Add book :\n{bookdata.Title}\n{bookdata.Author}\n{bookdata.Price}");
         _context.Add(bookdata);
         await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction("Index");;
     }
+
+    //tested, returns just 1 book by Id
     [HttpGet]
-    public async Task<ActionResult> BookDetails([FromRoute] int id)
+    public async Task<ActionResult> BookDetails(int id)
     {
         if (id == null)
         {
@@ -44,19 +88,19 @@ public class HomeController : Controller
         var bookdetails = await _context.Book.FindAsync(id);
         if (bookdetails == null)
         {
-            _logger.LogInformation($"Book with Id of : {id} is not found");
-            return NotFound("No book found");
+            _logger.LogInformation($"Book with Id of {id} is not found");
+            return NotFound($"Book with Id of {id} is not found");
         }
         _logger.LogInformation($"Book been found\nBook Tittle : {bookdetails.Title}\nBook Author: {bookdetails.Author}\nBook Price: {bookdetails.Price}");
-        return View(bookdetails);
+        return Ok(bookdetails);
     }
     [HttpPut]
     public async Task<ActionResult> EditBook([FromBody] Book book)
     {
         if (book == null)
         {
-            _logger.LogWarning("Id is not provided");
-            return BadRequest("No Id Provided");
+            _logger.LogWarning("Old book info is not provided");
+            return BadRequest("Old book info is not provided");
         }
         var bookdetails = await _context.Book.FindAsync(book.Id);
         if (bookdetails == null)
@@ -64,14 +108,28 @@ public class HomeController : Controller
             _logger.LogInformation($"Book with Id of : {book.Id} is not found");
             return NotFound("No book found");
         }
+        if (!ModelState.IsValid)
+        {
+            foreach (var entry in ModelState.Where(e => e.Value.Errors.Count > 0))
+            {
+                foreach (var error in entry.Value.Errors)
+                {
+                    _logger.LogWarning("Validation error on field '{Field}': {ErrorMessage}", entry.Key, error.ErrorMessage);
+                }
+            }
+            return BadRequest(ModelState);
+        }
+        _logger.LogInformation($"changing {bookdetails.Title} to {book.Title}\nchanging {bookdetails.Author} to {book.Author}\nchanging {bookdetails.Price} to {book.Price}");
         bookdetails.Author = book.Author;
         bookdetails.Title = book.Title;
         bookdetails.Price = book.Price;
 
         await _context.SaveChangesAsync();
 
-        return View();
+        return NoContent();
     }
+
+    //tested, delete book by id
     [HttpDelete]
     public async Task<ActionResult> DeleteBook([FromRoute] int id)
     {
@@ -87,8 +145,9 @@ public class HomeController : Controller
             return NotFound("No book found");
         }
         _context.Book.Remove(bookdetails);
+        _logger.LogInformation($"{bookdetails.Title} deleted");
         await _context.SaveChangesAsync();
-        return View();
+        return NoContent();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

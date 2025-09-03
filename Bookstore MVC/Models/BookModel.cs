@@ -13,7 +13,7 @@ namespace Bookstore_MVC.Models
         [StringLength(100, ErrorMessage = "The Author Name cannot exceed 100 characters. ")] 
         public string Author { get; set; }
         [Required(ErrorMessage = "Book price is required!")]
-        [Range(0, 1000, ErrorMessage = "The Price for The Book must be between {1} and {1000}.")]
-        public decimal Price { get; set; }
+        [Range(0, 1000, ErrorMessage = "The Price for {0} must be between {1} and {2}.")]
+        public int Price { get; set; }
     }
 }

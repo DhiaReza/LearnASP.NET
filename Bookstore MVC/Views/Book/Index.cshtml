@@ -1,0 +1,162 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Http.Features
+@{
+    ViewData["Title"] = "Home Page";
+    @model IEnumerable<Bookstore_MVC.Models.Book>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/index.css">
+    @* Include bootstrap CSS and JS file *@
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="table-responsive container mt-3 p-3">
+        <div class="w-90 mx-auto pb-2">
+            <h3>This is a simple CRUD project demonstrating ASP.NET features</h2>
+            <div class="pt-1">
+                <p>Features demonstrated including : </p>
+                <ol class="list-unstyled list-group-numbered ms-4">
+                    <li>Data Annotaion</li>
+                    <li>Attributes Routing</li>
+                    <li>Dependency Injection</li>
+                    <li>EF Core</li>
+                    <li>Model Binding and Validation</li>
+                </ol>
+                <p>Press the action button then fill the required form with absurd values to see the responses.</p>
+            </div>
+        </div>
+        <div>
+            <a href="/book/add" class="btn btn-success mb-3">Add Book</a>
+        </div>
+        @if(Model.Count() != 0){
+        <table class="table mx-auto text-center w-90 table-sm pt-2 align-middle">
+            <tr class="p-1">
+                <th class="">#</th>
+                <th class="">Title</th>
+                <th class="">Author</th>
+                <th class="">Price</th>
+                <th class="">Action</th>
+            </tr>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    var book = Model.ElementAt(i);   // or cast to List<T> if you prefer
+                    <tr class="">
+                        <td>@(i + 1)</td>           <!-- i is zero‑based, add 1 for display -->
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>$@book.Price</td>
+                        <td>
+                            <div class="btn-group-justified mx-2 px-1">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editmodal">Edit</button>
+                                <button type="button" class="btn btn-danger" data-id="@book.Id" onclick="DeleteBook(this)">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        } else {
+            <div class="text-center align-middle m-5">
+                <h1>
+                    Book list is empty
+                </h1>
+                <p>
+                    please add book data first
+                </p>
+            </div>
+        }
+        <div>
+            <p id="message"></p>
+        </div>
+        <div class="w-90 mx-auto pt-5">
+            <p>Made with ASP.NET MVC, SQL Express Server, Bootstrap, and native Javascript</p>
+        </div>
+    </div>
+<!-- Edit Modal -->
+<div class="modal" id="editmodal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Edit Data</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            Modal body..
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Notification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalMessage"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+<script>
+    async function DeleteBook(button) {
+        const id = button.getAttribute("data-id");
+
+        try {
+            const response = await fetch('/book/deletebook/' + id, {
+                method: 'DELETE'
+            });
+
+            let message = "";
+
+            if (response.status === 204) {
+                message = "Successfully deleted the data";
+            } 
+            else if (response.status === 404) {
+                message = "Data not found";
+            } 
+            else if (response.status === 400) {
+                message = "Bad request: No Id Provided";
+            } 
+            else {
+                message = "Unexpected error occurred";
+            }
+
+            // Show modal with message
+            document.getElementById("modalMessage").innerText = message;
+            const modal = new bootstrap.Modal(document.getElementById("messageModal"));
+            modal.show();
+
+            // Refresh page after 2 seconds
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+
+        } catch (error) {
+            console.error(error);
+            document.getElementById("modalMessage").innerText = "Error connecting to server";
+            const modal = new bootstrap.Modal(document.getElementById("messageModal"));
+            modal.show();
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+        }
+    }
+</script>

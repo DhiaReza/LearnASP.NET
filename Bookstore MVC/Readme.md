@@ -16,5 +16,6 @@
 
 
 What to do next :
-1. Test the APIs via postman
-2. create view
+1. Test Edit API
+3. create view, steps number 4. Use partial view for edit, add, and delete. Call the form when the request is amde. Make view for details.
+
