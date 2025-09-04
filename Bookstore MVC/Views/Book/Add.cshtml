@@ -11,16 +11,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
+    <link href="~/css/add.css" rel="stylesheer" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
-    <div class="container w-75">
-        <h1>@ViewData["Title"]</h1>
+    <div class="container w-90">
+        <div class="pt-5">
+            <h1>@ViewData["Title"]</h1>
+        </div>
         <div class="row">
+            <div>
+                <a href="/" class="btn btn-primary">Back</a>
+            </div>
             <form asp-controller="book" asp-action="Add" method="post">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group row">
+                <div class="form-group py-1">
                     <label asp-for="Author" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
                         <input asp-for="Author" class="form-control" placeholder="Enter book author" />
@@ -28,7 +33,7 @@
                         <span asp-validation-for="Author" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group py-1">
                     <label asp-for="Title" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Title" class="form-control" placeholder="Enter book title" />
@@ -36,7 +41,7 @@
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group py-1">
                     <label asp-for="Price" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Price" class="form-control" placeholder="Enter book price" />
@@ -45,9 +50,9 @@
                         </div>
                 </div>
                 <!-- Submit Button -->
-                <div class="form-group row">
-                    <div class="col-sm-10 offset-sm-2">
-                        <button type="submit" class="btn btn-primary">Add book</button>
+                <div class="form-group pt-2">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success">Add book</button>
                     </div>
                 </div>
             </form>

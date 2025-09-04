@@ -18,12 +18,13 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
-    <div class="table-responsive container mt-3 p-3">
-        <div class="w-90 mx-auto pb-2">
+    <div class="container w-90">
+        <div class="mx-auto pt-4 pb-3">
             <h3>This is a simple CRUD project demonstrating ASP.NET features</h2>
             <div class="pt-1">
                 <p>Features demonstrated including : </p>
                 <ol class="list-unstyled list-group-numbered ms-4">
+                    <li>Razor View</li>
                     <li>Data Annotaion</li>
                     <li>Attributes Routing</li>
                     <li>Dependency Injection</li>
@@ -37,7 +38,7 @@
             <a href="/book/add" class="btn btn-success mb-3">Add Book</a>
         </div>
         @if(Model.Count() != 0){
-        <table class="table mx-auto text-center w-90 table-sm pt-2 align-middle">
+        <table class="table-responsive mx-auto text-center w-100 table-sm pt-2 align-middle">
             <tr class="p-1">
                 <th class="">#</th>
                 <th class="">Title</th>
@@ -52,10 +53,14 @@
                         <td>@(i + 1)</td>           <!-- i is zero‑based, add 1 for display -->
                         <td>@book.Title</td>
                         <td>@book.Author</td>
-                        <td>$@book.Price</td>
+                        @if(book.Price == 0){
+                            <td>FREE</td>
+                        }else{
+                            <td>$@book.Price</td>
+                        }
                         <td>
                             <div class="btn-group-justified mx-2 px-1">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editmodal">Edit</button>
+                                <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
                                 <button type="button" class="btn btn-danger" data-id="@book.Id" onclick="DeleteBook(this)">Delete</button>
                             </div>
                         </td>
@@ -77,25 +82,6 @@
         </div>
         <div class="w-90 mx-auto pt-5">
             <p>Made with ASP.NET MVC, SQL Express Server, Bootstrap, and native Javascript</p>
-        </div>
-    </div>
-<!-- Edit Modal -->
-<div class="modal" id="editmodal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <h4 class="modal-title">Edit Data</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-            Modal body..
-        </div>
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
         </div>
     </div>
 </div>
@@ -159,4 +145,21 @@
             }, 2000);
         }
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    var editModal = document.getElementById('editmodal');
+    editModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+
+        var id = button.getAttribute('data-id');
+        var title = button.getAttribute('data-title');
+        var author = button.getAttribute('data-author');
+        var price = button.getAttribute('data-price');
+
+        document.getElementById('bookId').value = id;
+        document.getElementById('bookTitle').value = title;
+        document.getElementById('bookAuthor').value = author;
+        document.getElementById('bookPrice').value = price;
+    });
+});
 </script>

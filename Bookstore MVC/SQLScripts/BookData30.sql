@@ -1,0 +1,35 @@
+USE BookDb;
+GO
+
+-- Insert 30 book records into dbo.book with auto-generated Id
+INSERT INTO dbo.book (Title, Author, Price) VALUES
+('The Great Gatsby', 'F. Scott Fitzgerald', 10),
+('To Kill a Mockingbird', 'Harper Lee', 15),
+('1984', 'George Orwell', 20),
+('The Catcher in the Rye', 'J.D. Salinger', 12),
+('Pride and Prejudice', 'Jane Austen', 18),
+('Moby Dick', 'Herman Melville', 25),
+('The Odyssey', 'Homer', 30),
+('The Hitchhiker''s Guide to the Galaxy', 'Douglas Adams', 22),
+('The Shining', 'Stephen King', 14),
+('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 35),
+('The Hobbit', 'J.R.R. Tolkien', 32),
+('Crime and Punishment', 'Fyodor Dostoevsky', 28),
+('War and Peace', 'Leo Tolstoy', 40),
+('The Scarlet Letter', 'Nathaniel Hawthorne', 26),
+('Brave New World', 'Aldous Huxley', 24),
+('The Tale of Two Cities', 'Charles Dickens', 31),
+('Ulysses', 'James Joyce', 38),
+('The Bell Jar', 'Sylvia Plath', 19),
+('The Road', 'Cormac McCarthy', 27),
+('Beloved', 'Toni Morrison', 23),
+('Catch-22', 'Joseph Heller', 25),
+('The Alchemist', 'Paulo Coelho', 21),
+('The Da Vinci Code', 'Dan Brown', 33),
+('Jurassic Park', 'Michael Crichton', 29),
+('The Hunger Games', 'Suzanne Collins', 30),
+('A Game of Thrones', 'George R.R. Martin', 37),
+('The Picture of Dorian Gray', 'Oscar Wilde', 18),
+('Wuthering Heights', 'Emily Brontë', 24),
+('Jane Eyre', 'Charlotte Brontë', 20),
+('The Sun Also Rises', 'Ernest Hemingway', 26);

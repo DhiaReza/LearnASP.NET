@@ -94,40 +94,42 @@ public class BookController : Controller
         _logger.LogInformation($"Book been found\nBook Tittle : {bookdetails.Title}\nBook Author: {bookdetails.Author}\nBook Price: {bookdetails.Price}");
         return Ok(bookdetails);
     }
-    [HttpPut]
-    public async Task<ActionResult> EditBook([FromBody] Book book)
+// GET: Book/Edit/27
+[HttpGet]
+public async Task<IActionResult> Edit(int id)
+{
+    var book = await _context.Book.FindAsync(id);
+    if (book == null)
     {
-        if (book == null)
-        {
-            _logger.LogWarning("Old book info is not provided");
-            return BadRequest("Old book info is not provided");
-        }
-        var bookdetails = await _context.Book.FindAsync(book.Id);
-        if (bookdetails == null)
-        {
-            _logger.LogInformation($"Book with Id of : {book.Id} is not found");
-            return NotFound("No book found");
-        }
-        if (!ModelState.IsValid)
-        {
-            foreach (var entry in ModelState.Where(e => e.Value.Errors.Count > 0))
-            {
-                foreach (var error in entry.Value.Errors)
-                {
-                    _logger.LogWarning("Validation error on field '{Field}': {ErrorMessage}", entry.Key, error.ErrorMessage);
-                }
-            }
-            return BadRequest(ModelState);
-        }
-        _logger.LogInformation($"changing {bookdetails.Title} to {book.Title}\nchanging {bookdetails.Author} to {book.Author}\nchanging {bookdetails.Price} to {book.Price}");
-        bookdetails.Author = book.Author;
-        bookdetails.Title = book.Title;
-        bookdetails.Price = book.Price;
-
-        await _context.SaveChangesAsync();
-
-        return NoContent();
+        return NotFound();
     }
+    return View(book);
+}
+
+// POST: Book/Edit/27
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Edit(Book book)
+{
+    if (!ModelState.IsValid)
+    {
+        return View(book);
+    }
+
+    var existingBook = await _context.Book.FindAsync(book.Id);
+    if (existingBook == null)
+    {
+        return NotFound();
+    }
+
+    existingBook.Author = book.Author;
+    existingBook.Title = book.Title;
+    existingBook.Price = book.Price;
+
+    await _context.SaveChangesAsync();
+
+    return RedirectToAction(nameof(Index));
+}
 
     //tested, delete book by id
     [HttpDelete]

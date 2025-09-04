@@ -181,6 +181,10 @@
       "PackagePath": "staticwebassets\\Bookstore MVC.0y4lw6d7i6.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\add.css",
+      "PackagePath": "staticwebassets\\css\\add.css"
+    },
+    {
       "Id": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },

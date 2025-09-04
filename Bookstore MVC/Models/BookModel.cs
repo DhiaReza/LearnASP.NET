@@ -7,7 +7,7 @@ namespace Bookstore_MVC.Models
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage ="Book title is required!")]
-        [StringLength(300, ErrorMessage = "The Title cannot exceed 300 characters. ")] 
+        [StringLength(100, ErrorMessage = "The Title cannot exceed 100 characters. ")] 
         public string Title { get; set; }
         [Required(ErrorMessage = "Book author is required!")]
         [StringLength(100, ErrorMessage = "The Author Name cannot exceed 100 characters. ")] 

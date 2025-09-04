@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2Wndzw/JGl7r60bLtFpFAJfRVkWTwAXDM84wBkxuSnM=",
+  "Hash": "3DH+sFDTcNrEoAq0cHA2QNOgyNrW0+18qsMrukvfzeA=",
   "Source": "Bookstore MVC",
   "BasePath": "_content/Bookstore MVC",
   "Mode": "Default",
@@ -1298,6 +1298,27 @@
       "OriginalItemSpec": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js"
     },
     {
+      "Identity": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\6cixki4me4-5no1639j7p.gz",
+      "SourceId": "Bookstore MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/Bookstore MVC",
+      "RelativePath": "css/add#[.{fingerprint=5no1639j7p}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\add.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "mtoq3c16mt",
+      "Integrity": "KiPue65gjP42+rBkRWHyf6O7kB8rrxhd0q1thxqujy8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\add.css"
+    },
+    {
       "Identity": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\6pad4h7hpn-b9sayid5wm.gz",
       "SourceId": "Bookstore MVC",
       "SourceType": "Discovered",
@@ -1550,12 +1571,12 @@
       "OriginalItemSpec": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
-      "Identity": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-s7n5xke846.gz",
+      "Identity": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-pxs6d1dsz5.gz",
       "SourceId": "Bookstore MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Bookstore MVC",
-      "RelativePath": "css/index#[.{fingerprint=s7n5xke846}]?.css.gz",
+      "RelativePath": "css/index#[.{fingerprint=pxs6d1dsz5}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1564,8 +1585,8 @@
       "RelatedAsset": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "7fupeazeqq",
-      "Integrity": "vbOzqnhdJt31KwR4fCuMyVWfa/R5NDZkGikH+tVj9Qg=",
+      "Fingerprint": "nkzh0q56vz",
+      "Integrity": "V0YNmHmOX7R+uvMxTELP/L33QkDboYxQmbWWppQzz1o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\index.css"
@@ -3272,6 +3293,27 @@
       "OriginalItemSpec": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Bookstore MVC.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\add.css",
+      "SourceId": "Bookstore MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\",
+      "BasePath": "_content/Bookstore MVC",
+      "RelativePath": "css/add#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5no1639j7p",
+      "Integrity": "/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\add.css"
+    },
+    {
       "Identity": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\index.css",
       "SourceId": "Bookstore MVC",
       "SourceType": "Discovered",
@@ -3286,8 +3328,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "s7n5xke846",
-      "Integrity": "yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI=",
+      "Fingerprint": "pxs6d1dsz5",
+      "Integrity": "A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\index.css"
@@ -5210,6 +5252,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-1CO6Q1V/mBjQPbYskxj/DQHs6MlD+NoC6msWaCnjbbI="
+        }
+      ]
+    },
+    {
+      "Route": "css/add.5no1639j7p.css",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\6cixki4me4-5no1639j7p.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.020833333333"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KiPue65gjP42+rBkRWHyf6O7kB8rrxhd0q1thxqujy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 11:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5no1639j7p"
+        },
+        {
+          "Name": "label",
+          "Value": "css/add.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E="
+        }
+      ]
+    },
+    {
+      "Route": "css/add.5no1639j7p.css",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\add.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 11:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5no1639j7p"
+        },
+        {
+          "Name": "label",
+          "Value": "css/add.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E="
+        }
+      ]
+    },
+    {
+      "Route": "css/add.5no1639j7p.css.gz",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\6cixki4me4-5no1639j7p.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KiPue65gjP42+rBkRWHyf6O7kB8rrxhd0q1thxqujy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 11:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5no1639j7p"
+        },
+        {
+          "Name": "label",
+          "Value": "css/add.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KiPue65gjP42+rBkRWHyf6O7kB8rrxhd0q1thxqujy8="
+        }
+      ]
+    },
+    {
+      "Route": "css/add.css",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\6cixki4me4-5no1639j7p.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.020833333333"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KiPue65gjP42+rBkRWHyf6O7kB8rrxhd0q1thxqujy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 11:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E="
+        }
+      ]
+    },
+    {
+      "Route": "css/add.css",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\add.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 11:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/8ozMUUWxb68NaEcV+VOpsHv78BJdXDGV7R0UNwpj/E="
+        }
+      ]
+    },
+    {
+      "Route": "css/add.css.gz",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\6cixki4me4-5no1639j7p.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "47"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KiPue65gjP42+rBkRWHyf6O7kB8rrxhd0q1thxqujy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 03 Sep 2025 11:06:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KiPue65gjP42+rBkRWHyf6O7kB8rrxhd0q1thxqujy8="
         }
       ]
     },
@@ -14751,12 +15091,12 @@
     },
     {
       "Route": "css/index.css",
-      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-s7n5xke846.gz",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-pxs6d1dsz5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.016949152542"
+          "Quality": "0.010309278351"
         }
       ],
       "ResponseHeaders": [
@@ -14766,15 +15106,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58"
+          "Value": "96"
         },
         {
           "Name": "ETag",
-          "Value": "\"vbOzqnhdJt31KwR4fCuMyVWfa/R5NDZkGikH+tVj9Qg=\""
+          "Value": "\"V0YNmHmOX7R+uvMxTELP/L33QkDboYxQmbWWppQzz1o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 01:50:57 GMT"
+          "Value": "Wed, 03 Sep 2025 17:58:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14794,13 +15134,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI=\""
+          "Value": "W/\"A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI="
+          "Value": "sha256-A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA="
         }
       ]
     },
@@ -14815,7 +15155,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "41"
+          "Value": "101"
         },
         {
           "Name": "Content-Type",
@@ -14823,11 +15163,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI=\""
+          "Value": "\"A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 01:50:57 GMT"
+          "Value": "Wed, 03 Sep 2025 17:58:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14837,13 +15177,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI="
+          "Value": "sha256-A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA="
         }
       ]
     },
     {
       "Route": "css/index.css.gz",
-      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-s7n5xke846.gz",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-pxs6d1dsz5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14852,7 +15192,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58"
+          "Value": "96"
         },
         {
           "Name": "Content-Type",
@@ -14860,11 +15200,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vbOzqnhdJt31KwR4fCuMyVWfa/R5NDZkGikH+tVj9Qg=\""
+          "Value": "\"V0YNmHmOX7R+uvMxTELP/L33QkDboYxQmbWWppQzz1o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 01:50:57 GMT"
+          "Value": "Wed, 03 Sep 2025 17:58:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14882,18 +15222,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vbOzqnhdJt31KwR4fCuMyVWfa/R5NDZkGikH+tVj9Qg="
+          "Value": "sha256-V0YNmHmOX7R+uvMxTELP/L33QkDboYxQmbWWppQzz1o="
         }
       ]
     },
     {
-      "Route": "css/index.s7n5xke846.css",
-      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-s7n5xke846.gz",
+      "Route": "css/index.pxs6d1dsz5.css",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-pxs6d1dsz5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.016949152542"
+          "Quality": "0.010309278351"
         }
       ],
       "ResponseHeaders": [
@@ -14903,15 +15243,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58"
+          "Value": "96"
         },
         {
           "Name": "ETag",
-          "Value": "\"vbOzqnhdJt31KwR4fCuMyVWfa/R5NDZkGikH+tVj9Qg=\""
+          "Value": "\"V0YNmHmOX7R+uvMxTELP/L33QkDboYxQmbWWppQzz1o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 01:50:57 GMT"
+          "Value": "Wed, 03 Sep 2025 17:58:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14931,13 +15271,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI=\""
+          "Value": "W/\"A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "s7n5xke846"
+          "Value": "pxs6d1dsz5"
         },
         {
           "Name": "label",
@@ -14945,12 +15285,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI="
+          "Value": "sha256-A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA="
         }
       ]
     },
     {
-      "Route": "css/index.s7n5xke846.css",
+      "Route": "css/index.pxs6d1dsz5.css",
       "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\css\\index.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -14960,7 +15300,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "41"
+          "Value": "101"
         },
         {
           "Name": "Content-Type",
@@ -14968,11 +15308,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI=\""
+          "Value": "\"A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 01:50:57 GMT"
+          "Value": "Wed, 03 Sep 2025 17:58:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14982,7 +15322,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "s7n5xke846"
+          "Value": "pxs6d1dsz5"
         },
         {
           "Name": "label",
@@ -14990,13 +15330,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yHXHkJBsKEB9QdfI8tJqJ9yLDH0KGPiVLCvNWEOckwI="
+          "Value": "sha256-A4eJOiqXOqezz9KvuU3OUr5+9noxDs7tlE1VOMi9VRA="
         }
       ]
     },
     {
-      "Route": "css/index.s7n5xke846.css.gz",
-      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-s7n5xke846.gz",
+      "Route": "css/index.pxs6d1dsz5.css.gz",
+      "AssetFile": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\obj\\Debug\\net9.0\\compressed\\9y7foxohs9-pxs6d1dsz5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15005,7 +15345,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58"
+          "Value": "96"
         },
         {
           "Name": "Content-Type",
@@ -15013,11 +15353,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vbOzqnhdJt31KwR4fCuMyVWfa/R5NDZkGikH+tVj9Qg=\""
+          "Value": "\"V0YNmHmOX7R+uvMxTELP/L33QkDboYxQmbWWppQzz1o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Sep 2025 01:50:57 GMT"
+          "Value": "Wed, 03 Sep 2025 17:58:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15035,7 +15375,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "s7n5xke846"
+          "Value": "pxs6d1dsz5"
         },
         {
           "Name": "label",
@@ -15043,7 +15383,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vbOzqnhdJt31KwR4fCuMyVWfa/R5NDZkGikH+tVj9Qg="
+          "Value": "sha256-V0YNmHmOX7R+uvMxTELP/L33QkDboYxQmbWWppQzz1o="
         }
       ]
     },
