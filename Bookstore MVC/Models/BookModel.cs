@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bookstore_MVC.Models
 {
@@ -15,9 +16,10 @@ namespace Bookstore_MVC.Models
         [Required(ErrorMessage = "Book price is required!")]
         [Range(0, 1000, ErrorMessage = "The Price for {0} must be between {1} and {2}.")]
         public int Price { get; set; }
-
-        public string description {get; set; }
-
+        public string? Description { get; set; }
         public byte[]? ImageData { get; set; }
+        public string? ImageContentType { get; set; }
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
     }
 }

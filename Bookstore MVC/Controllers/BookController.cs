@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bookstore_MVC.Models;
 using Microsoft.EntityFrameworkCore;
+using Bookstore_MVC.Migrations;
 
 namespace Bookstore_MVC.Controllers;
 public class BookController : Controller
@@ -70,10 +71,27 @@ public class BookController : Controller
             }
             return View(bookdata);
         }
+        if (bookdata.ImageFile != null)
+        {
+            using var ms = new MemoryStream();
+            await bookdata.ImageFile.CopyToAsync(ms);
+            bookdata.ImageData = ms.ToArray();
+            bookdata.ImageContentType = bookdata.ImageFile.ContentType;
+        }
         _logger.LogInformation($"Add book :\n{bookdata.Title}\n{bookdata.Author}\n{bookdata.Price}");
         _context.Add(bookdata);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");;
+    }
+    public IActionResult GetImage(int id)
+    {
+        var product = _context.Book.Find(id);
+        if (product == null || product.ImageData == null)
+        {
+            return NotFound();
+        }
+
+        return File(product.ImageData, product.ImageContentType ?? "application/octet-stream");
     }
 
     //tested, returns just 1 book by Id
@@ -94,17 +112,17 @@ public class BookController : Controller
         _logger.LogInformation($"Book been found\nBook Tittle : {bookdetails.Title}\nBook Author: {bookdetails.Author}\nBook Price: {bookdetails.Price}");
         return Ok(bookdetails);
     }
-// GET: Book/Edit/27
-[HttpGet]
-public async Task<IActionResult> Edit(int id)
-{
-    var book = await _context.Book.FindAsync(id);
-    if (book == null)
+    // GET: Book/Edit/27
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
     {
-        return NotFound();
+        var book = await _context.Book.FindAsync(id);
+        if (book == null)
+        {
+            return NotFound();
+        }
+        return View(book);
     }
-    return View(book);
-}
 
 // POST: Book/Edit/27
 [HttpPost]
@@ -125,7 +143,7 @@ public async Task<IActionResult> Edit(Book book)
     existingBook.Author = book.Author;
     existingBook.Title = book.Title;
     existingBook.Price = book.Price;
-    existingBook.description = book.description;
+    existingBook.Description = book.Description;
     existingBook.ImageData = book.ImageData;
 
     await _context.SaveChangesAsync();
@@ -135,7 +153,7 @@ public async Task<IActionResult> Edit(Book book)
 
     //tested, delete book by id
     [HttpDelete]
-    public async Task<ActionResult> DeleteBook([FromRoute] int id)
+    public async Task<ActionResult> DeleteBook([FromRoute] int? id)
     {
         if (id == null)
         {
