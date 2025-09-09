@@ -1,3 +1,5 @@
+# START
+
 3️⃣ BookStore MVC – Razor Pages + MVC
 | Step Number | Item | Requirement |
 |:----|:-----|:------------|
@@ -6,16 +8,23 @@
 | 3 | Controller |	BooksController with actions: Index, Details, Create, Edit, Delete |
 | 4 | Views |	Razor files under Views/Books/ for each action (use layout, partial for form) |
 | 5 | Validation |	Client‑side + server‑side validation; show validation summary |
-| 6 | Filters |	ActionFilter that logs execution time (inject ILogger) |
-| 7 | Areas |	Admin area (for CRUD) & Customer area (read‑only) |
-| 8 | Dependency Injection |	Register a IBookRepository interface and InMemoryBookRepository (for dev) |
-| 9 | Unit Tests |	Controller unit tests with Moq for IBookRepository |
-| 10 | Readme |	How to run, add dummy data, test admin area |
-| 11 | Folder |	Areas/Admin/Controllers/, Areas/Admin/Views/ etc. |
 
+# NEXT GOAL
 
+Phase 3 – Step 1: Partial Views & Layout Enhancements
 
-What to do next :
-1. Test Edit API
-3. create view, steps number 4. Use partial view for edit, add, and delete. Call the form when the request is amde. Make view for details.
+Goal: Make your app more modular and maintainable.
 
+What to do:
+
+Move common HTML (like header, footer, navigation bar) into _Layout.cshtml.
+
+Create Partial Views for repeating components (e.g., book cards, alerts, menus).
+
+Use @RenderBody() and @RenderSection() effectively.
+
+Exercise:
+
+Make a partial view for a book card showing Title, Author, Price, and a “View Details” button.
+
+Replace repeated HTML in your Index and Details views with this partial view.

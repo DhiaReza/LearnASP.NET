@@ -125,6 +125,8 @@ public async Task<IActionResult> Edit(Book book)
     existingBook.Author = book.Author;
     existingBook.Title = book.Title;
     existingBook.Price = book.Price;
+    existingBook.description = book.description;
+    existingBook.ImageData = book.ImageData;
 
     await _context.SaveChangesAsync();
 
