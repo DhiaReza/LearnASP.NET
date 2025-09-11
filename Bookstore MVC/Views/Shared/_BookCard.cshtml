@@ -1,0 +1,17 @@
+@model Bookstore_MVC.Models.Book
+
+
+<div>
+  <div class="card">
+    <div class="card-body">
+        <h3>@Model.Title</h4>
+        <h4>@Model.Author</h4>
+        <p>@Model.Description</p>
+    </div>
+    <div class="card-footer">
+            <div class="btn-group-justified mx-2 px-1"></div>
+        <a asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <button type="button" class="btn btn-danger" data-id="@Model.Id" onclick="DeleteBook(this)">Delete</button>
+    </div>
+  </div>
+</div>
