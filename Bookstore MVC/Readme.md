@@ -1,30 +1,143 @@
-# START
+Perfect 👍 Let’s turn the **Bookstore Management System** into a **step-by-step milestone roadmap**. Each milestone is designed like a real-world sprint — you can implement, test, and commit after completing each one.
 
-3️⃣ BookStore MVC – Razor Pages + MVC
-| Step Number | Item | Requirement |
-|:----|:-----|:------------|
-| 1 | Project | dotnet new mvc -n BookStore |
-| 2 | Model |	Book (Id:int, Title:string, Author:string, Price:decimal) with DataAnnotations: [Required], [Range] |
-| 3 | Controller |	BooksController with actions: Index, Details, Create, Edit, Delete |
-| 4 | Views |	Razor files under Views/Books/ for each action (use layout, partial for form) |
-| 5 | Validation |	Client‑side + server‑side validation; show validation summary |
+---
 
-# NEXT GOAL
+# 📘 **Bookstore Management System – Roadmap**
 
-Phase 3 – Step 1: Partial Views & Layout Enhancements
+---
 
-Goal: Make your app more modular and maintainable.
+## 🟢 **Milestone 1 – Project Setup & Foundation** DONE
 
-What to do:
+**Goal:** Create the base project and configure dependencies.
 
-Move common HTML (like header, footer, navigation bar) into _Layout.cshtml.
+* [ ] Create an **ASP.NET Core MVC (or Blazor Server)** project.
+* [ ] Install required NuGet packages:
 
-Create Partial Views for repeating components (e.g., book cards, alerts, menus).
+  * `Microsoft.EntityFrameworkCore.SqlServer`
+  * `Microsoft.EntityFrameworkCore.Tools`
+  * `Microsoft.AspNetCore.Identity.EntityFrameworkCore`
+  * (Optional: `AutoMapper.Extensions.Microsoft.DependencyInjection`)
+* [ ] Setup **AppDbContext** extending `IdentityDbContext`.
+* [ ] Configure **SQL Server connection string** in `appsettings.json`.
+* [ ] Run initial **migration** for Identity.
+* [ ] Configure **Dependency Injection** in `Program.cs` for DbContext, Identity.
+* [ ] Add layout: Navbar with links → Home, Books, Login/Register.
 
-Use @RenderBody() and @RenderSection() effectively.
+✅ *End of Milestone:* You can register/login users and see the Home/Books menu.
 
-Exercise:
+---
 
-Make a partial view for a book card showing Title, Author, Price, and a “View Details” button.
+## 🔵 **Milestone 2 – Authentication & Authorization** ON THE MAKING
 
-Replace repeated HTML in your Index and Details views with this partial view.
+**Goal:** Implement Identity with role-based access.
+
+* [ ] Seed roles: `Admin`, `Customer`, `Staff`.
+* [ ] Create a **default admin user** on first run.
+* [ ] Role-based authorization:
+
+  * Admin → full access.
+  * Staff → manage books/orders.
+  * Customer → browse, buy, review.
+* [ ] Add **Register/Login/Logout** UI.
+* [ ] Implement email confirmation (mock SMTP or real).
+
+✅ *End of Milestone:* Users can register/login, and admin can manage roles.
+
+---
+
+## 🟡 **Milestone 3 – Book Management (CRUD)**
+
+**Goal:** Admin/Staff can manage the book catalog.
+
+* [ ] Create `Book` model → (Title, Author, ISBN, Genre, Price, Stock, Description, CoverImage).
+* [ ] Migrations + database update.
+* [ ] Scaffold **CRUD pages** (Create, Edit, Delete, List, Details).
+* [ ] Implement **file upload** for book covers (store in `/wwwroot/images`).
+* [ ] Only Admin/Staff can access CRUD pages.
+
+✅ *End of Milestone:* Admin/Staff can add/manage books.
+
+---
+
+## 🟠 **Milestone 4 – Catalog & Search**
+
+**Goal:** Customers can browse & find books.
+
+* [ ] Public **Books page**: show grid of books with images, title, price.
+* [ ] Add **search bar** (Title, Author, ISBN).
+* [ ] Add filters: Genre, Price range.
+* [ ] Add sorting: Price low-high, Newest, Popularity.
+* [ ] Pagination (e.g., 12 books per page).
+
+✅ *End of Milestone:* Customers can browse/search/filter books.
+
+---
+
+## 🟣 **Milestone 5 – Shopping Cart & Orders**
+
+**Goal:** Customers can buy books.
+
+* [ ] Create models:
+
+  * `Order` → CustomerId, OrderDate, Status.
+  * `OrderItem` → OrderId, BookId, Quantity, Price.
+* [ ] Add **Cart system** (session-based or DB-backed).
+* [ ] Cart features: add/remove/update quantity.
+* [ ] Checkout flow → creates Order & OrderItems.
+* [ ] Customer: view **Order history**.
+* [ ] Admin/Staff: view/manage all orders, update status.
+
+✅ *End of Milestone:* Customers can place orders, staff can manage them.
+
+---
+
+## 🟤 **Milestone 6 – Reviews & Ratings**
+
+**Goal:** Customers can review books.
+
+* [ ] Create `Review` model → UserId, BookId, Rating (1–5), Comment, CreatedDate.
+* [ ] Customer can add/edit/delete own review.
+* [ ] Show reviews on book details page.
+* [ ] Calculate **average rating** for each book.
+
+✅ *End of Milestone:* Books show ratings & reviews.
+
+---
+
+## ⚪ **Milestone 7 – User Profile & Dashboard**
+
+**Goal:** Personalized features for users and admins.
+
+* [ ] Customer:
+
+  * Edit profile (name, avatar, password).
+  * View past orders & reviews.
+* [ ] Admin Dashboard:
+
+  * Total users, total books, total orders.
+  * Simple chart (sales summary).
+  * Manage users (assign roles, lock account).
+
+✅ *End of Milestone:* Customers have profile page, Admin has dashboard.
+
+---
+
+## 🔴 **Milestone 8 – Polishing & Portfolio Boosters**
+
+**Goal:** Make project portfolio-ready.
+
+* [ ] Add **Bootstrap 5/Tailwind** for styling.
+* [ ] Improve navigation & UI consistency.
+* [ ] Add **validation** (DataAnnotations).
+* [ ] Seed initial data (sample books, users, orders).
+* [ ] Optional: REST API endpoint for books/orders.
+* [ ] Optional: Unit tests for BookService, OrderService.
+* [ ] Deploy on **Azure/Render/Heroku** (free tier).
+
+✅ *End of Milestone:* A professional-grade bookstore system ready for your portfolio.
+
+---
+
+👉 This roadmap ensures your project uses **ASP.NET Identity, EF Core, SQL Server, and modern practices**, while also looking **portfolio-ready** with real-world functionality.
+
+Do you want me to also **sketch the database schema (ERD)** so you can clearly see all the tables and relationships before starting?

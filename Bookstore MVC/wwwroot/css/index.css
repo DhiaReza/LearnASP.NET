@@ -10,6 +10,8 @@ body{
 
 }
 
-.table-responsive {
-    height: 100px;
+.fixed-img {
+  height: 200px;
+  object-fit: contain;
+  width: 100%;
 }

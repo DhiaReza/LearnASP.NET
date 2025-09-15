@@ -197,6 +197,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\img\\NOT-AVAILABLE.png",
+      "PackagePath": "staticwebassets\\img\\NOT-AVAILABLE.png"
+    },
+    {
+      "Id": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\img\\WeMod Kenshi Setup.exe",
+      "PackagePath": "staticwebassets\\img\\WeMod Kenshi Setup.exe"
+    },
+    {
       "Id": "C:\\Users\\fahre\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -19,8 +19,8 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
-    <div class="container w-90">
-        <div class="mx-auto pt-4 pb-3">
+    <div class="container">
+        @* <div class="mx-auto pt-4 pb-3">
             <h3>This is a simple CRUD project demonstrating ASP.NET features</h2>
             <div class="pt-1">
                 <p>Features demonstrated including : </p>
@@ -34,7 +34,7 @@
                 </ol>
                 <p>Press the action button then fill the required form with absurd values to see the responses.</p>
             </div>
-        </div>
+        </div> *@
         <div>
             <a href="/book/add" class="btn btn-success mb-3">Add Book</a>
         </div>
@@ -68,10 +68,10 @@
                     </tr>
                 }
             </table> *@
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
             @foreach(var book in Model){
-                <div class="col-md-4 col-sm-6 mb-3">
+                <div class="col-md-3 col-sm-1 mb-3">
                     <partial name="_BookCard" for="@book">
                 </div>
             }
@@ -90,7 +90,7 @@
         <div>
             <p id="message"></p>
         </div>
-        <div class="w-90 mx-auto pt-5">
+        <div class="mx-auto pt-5">
             <p>Made with ASP.NET MVC, SQL Express Server, Bootstrap, and native Javascript</p>
         </div>
     </div>
