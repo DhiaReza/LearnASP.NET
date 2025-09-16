@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Bookstore_MVC.Models;
+using Microsoft.Identity.Client;
 
 namespace Bookstore_MVC.Controllers
 {
@@ -9,34 +10,84 @@ namespace Bookstore_MVC.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly RoleManager<IdentityUser> _roleManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityUser> RoleManager)
+        private bool Locked = false;
+
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _roleManager = RoleManager;
+            _logger = logger;
         }
-
+        // roles :
+        // admin
+        // staff
+        // customer
         [HttpPost]
-        public async Task<IActionResult> Register(string username, string password)
+        public async Task<IActionResult> Register(UserDto user)
         {
-            var user = new IdentityUser { UserName = username };
-
-            var result = await _userManager.CreateAsync(user, password);
-
-            if (result.Succeeded)
+            if (ModelState.IsValid)
             {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Home");
-            }
+                // create user object
+                var newUser = new IdentityUser { UserName = user.username };
+                // adds new user with password
+                var result = await _userManager.CreateAsync(newUser, user.password);
+                // adds assign newly created user to customer
+                await _userManager.AddToRoleAsync(newUser, "Customer");
 
-            foreach (var error in result.Errors)
+                if (result.Succeeded)
+                {
+                    // if success, go to index
+                    await _signInManager.SignInAsync(newUser, isPersistent: true);
+                    return RedirectToAction("Index");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View(user);
+            }
+            else
             {
-                ModelState.AddModelError("", error.Description);
+                return View(user);
             }
-
+        }
+        [HttpGet]
+        public async Task<IActionResult> Login()
+        {
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(UserDto user)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var login = await _signInManager.PasswordSignInAsync(user.username, user.password, user.rememberme, Locked);
+                if (login.Succeeded)
+                {
+                    _logger.LogInformation($"User {user.username} logged in.");
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login attempt");
+                    return View(user);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid login attempt");
+                return View(user);
+            }
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -10,7 +10,28 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Password settings.
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredLength = 6;
 
+    // Lockout settings.
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+
+    // User settings.
+    options.User.AllowedUserNameCharacters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.RequireUniqueEmail = false;
+});
+builder.Services.AddAuthorization();
+builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,42 +42,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Book}/{action=Index}/{id?}");
-app.MapRazorPages(); // Enables Identity UI pages
 app.MapStaticAssets();
-app.Run();
-
-async Task SeedRolesAndAdmin(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
-{
-    // Ensure Admin role exists
-    if (!await roleManager.RoleExistsAsync("Admin"))
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
-    if (!await roleManager.RoleExistsAsync("Staff"))
-        await roleManager.CreateAsync(new IdentityRole("Staff"));
-    if (!await roleManager.RoleExistsAsync("Customer"))
-        await roleManager.CreateAsync(new IdentityRole("Customer"));
-
-    // Ensure default admin user exists
-    var admin = await userManager.FindByNameAsync("defaultadmin");
-    if (admin == null)
-    {
-        admin = new IdentityUser { UserName = "defaultadmin" };
-        await userManager.CreateAsync(admin, "defaultadmin"); // password
-    }
-
-    // Assign Admin role
-    if (!await userManager.IsInRoleAsync(admin, "Admin"))
-        await userManager.AddToRoleAsync(admin, "Admin");
-}
 
 using (var scope = app.Services.CreateScope())
 {
@@ -66,3 +62,40 @@ using (var scope = app.Services.CreateScope())
 
     await SeedRolesAndAdmin(userManager, roleManager);
 }
+
+app.Run();
+
+async Task SeedRolesAndAdmin(UserManager<IdentityUser> userManager,
+                             RoleManager<IdentityRole> roleManager)
+{
+    // Ensure roles exist
+    foreach (var roleName in new[] { "Admin", "Staff", "Customer" })
+    {
+        if (!await roleManager.RoleExistsAsync(roleName))
+            await roleManager.CreateAsync(new IdentityRole(roleName));
+    }
+
+    // Default admin credentials – adjust to meet your policy
+    const string adminUserName = "defaultadmin";
+    const string adminPassword = "defaultadmin";
+
+    var admin = await userManager.FindByNameAsync(adminUserName);
+    if (admin == null)
+    {
+        admin = new IdentityUser { UserName = adminUserName };
+        var result = await userManager.CreateAsync(admin, adminPassword);
+
+        if (!result.Succeeded)
+        {
+            foreach (var error in result.Errors)
+            {
+                Console.WriteLine($"Error: {error.Description}");
+            }
+        }
+    }
+
+    // Ensure the admin has the Admin role
+    if (!await userManager.IsInRoleAsync(admin, "Admin"))
+        await userManager.AddToRoleAsync(admin, "Admin");
+}
+

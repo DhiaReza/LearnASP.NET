@@ -11,7 +11,6 @@ namespace Bookstore_MVC.Models
         {
         }
 
-        // Your own tables
         public DbSet<Book> Book { get; set; }
     }
 }
