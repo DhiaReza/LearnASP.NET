@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Bookstore_MVC.Models;
 using Microsoft.Identity.Client;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Bookstore_MVC.Controllers
 {
@@ -13,7 +14,6 @@ namespace Bookstore_MVC.Controllers
         private readonly ILogger<AccountController> _logger;
 
         private bool Locked = false;
-
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
         {
             _userManager = userManager;
@@ -24,45 +24,60 @@ namespace Bookstore_MVC.Controllers
         // admin
         // staff
         // customer
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> Register(UserDto user)
         {
-            if (ModelState.IsValid)
+            var username = User.Identity.Name;
+            if (username != null)
             {
-                // create user object
-                var newUser = new IdentityUser { UserName = user.username };
-                // adds new user with password
-                var result = await _userManager.CreateAsync(newUser, user.password);
-                // adds assign newly created user to customer
-                await _userManager.AddToRoleAsync(newUser, "Customer");
+                return BadRequest();
+            }
 
-                if (result.Succeeded)
-                {
-                    // if success, go to index
-                    await _signInManager.SignInAsync(newUser, isPersistent: true);
-                    return RedirectToAction("Index");
-                }
+            if (!ModelState.IsValid)
+            {
+                // Return 400 Bad Request with the validation messages.
+                return BadRequest(ModelState);
+            }
 
+
+            var newUser = new IdentityUser { UserName = user.username };
+            var result = await _userManager.CreateAsync(newUser, user.password);
+
+            if (!result.Succeeded)
+            {
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError("", error.Description);
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
+                // Again return 400 so the client knows something went wrong.
+                return BadRequest(ModelState);
+            }
 
-                return View(user);
-            }
-            else
-            {
-                return View(user);
-            }
+            await _userManager.AddToRoleAsync(newUser, "Customer");
+            _logger.LogInformation($"Created user with {user.username} name");
+
+            await _signInManager.SignInAsync(newUser, isPersistent: true);
+            // 200 OK with a redirect or 201 Created – choose what fits your API style.
+            return RedirectToAction("Index", "Book");
         }
         [HttpGet]
-        public async Task<IActionResult> Login()
+        public IActionResult Login()
         {
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Login(UserDto user)
         {
+            var username = User.Identity.Name;
+            if (username != null)
+            {
+                return BadRequest();
+            }
 
             if (ModelState.IsValid)
             {
@@ -70,24 +85,34 @@ namespace Bookstore_MVC.Controllers
                 if (login.Succeeded)
                 {
                     _logger.LogInformation($"User {user.username} logged in.");
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Index", "Book");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid login attempt");
-                    return View(user);
+                    return BadRequest(ModelState); ;
                 }
             }
             else
             {
                 ModelState.AddModelError("", "Invalid login attempt");
-                return View(user);
+                return BadRequest(ModelState);
             }
         }
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            var username = User.Identity.Name;
+            if (username == null)
+            {
+                _logger.LogInformation($"No user is logged in");
+                return BadRequest();
+            }
+            else
+            {
+                _logger.LogInformation($"Logged out: {username}");
+                await _signInManager.SignOutAsync();
+                return RedirectToAction("Index", "Book");
+            }
         }
     }
 }
