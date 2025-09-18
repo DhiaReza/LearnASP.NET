@@ -43,12 +43,23 @@ Perfect 👍 Let’s turn the **Bookstore Management System** into a **step-by-s
 
 ✅ *End of Milestone:* Users can register/login, and admin can manage roles.
 
-Currently doing :
-Implement registed, login and logout API using ASP.NET Identity
-
 Next :
-Test those apis
-Make the view
+Make APIs for accountmanagement1
+Get accounts (list)
+
+Get account by ID
+
+Add account with role(s)
+
+Edit account (name/email/phone)
+
+Edit role
+
+Reset/change password
+
+Lock/unlock account
+
+Delete account
 
 ---
 

@@ -1,0 +1,54 @@
+@using Microsoft.AspNetCore.Components.Web
+@{
+    ViewData["Title"] = "Manage Account";
+}
+@model IEnumerable<Bookstore_MVC.Models.AccountManagementDTO>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/login.css" rel="stylesheer" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+                <div class="row">
+            <div>
+                <a href="/" class="btn btn-primary">Back</a>
+            </div>
+            <div>
+                <h4>
+                    Manage Accounts
+                </h4>
+            </div>
+            <div>
+                <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Role</td>
+            </tr>
+        }
+    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+</body>
