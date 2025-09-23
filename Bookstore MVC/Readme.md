@@ -27,7 +27,7 @@ Perfect 👍 Let’s turn the **Bookstore Management System** into a **step-by-s
 
 ---
 
-## 🔵 **Milestone 2 – Authentication & Authorization** ON THE MAKING
+## 🔵 **Milestone 2 – Authentication & Authorization** DONE
 
 **Goal:** Implement Identity with role-based access.
 
@@ -45,25 +45,18 @@ Perfect 👍 Let’s turn the **Bookstore Management System** into a **step-by-s
 
 Next :
 Make APIs for accountmanagement1
-Get accounts (list)
-
-Get account by ID
-
-Add account with role(s)
-
-Edit account (name/email/phone)
-
-Edit role
-
-Reset/change password
-
-Lock/unlock account
-
-Delete account
+1. Get accounts (list) OK
+2. Get account by ID  OK but NAME
+3. Add account with role(s) OK
+4. Edit account (name/email/phone) OK
+5. Edit role OK
+6. Reset/change password OK
+7. Lock/unlock account
+8. Delete account OK
 
 ---
 
-## 🟡 **Milestone 3 – Book Management (CRUD)**
+## 🟡 **Milestone 3 – Book Management (CRUD)** ON THE MAKING
 
 **Goal:** Admin/Staff can manage the book catalog.
 
@@ -75,6 +68,9 @@ Delete account
 
 ✅ *End of Milestone:* Admin/Staff can add/manage books.
 
+Next :
+Create separate controller and view for each user (admin, staff and customer)
+1. Create Admin controller and View
 ---
 
 ## 🟠 **Milestone 4 – Catalog & Search**

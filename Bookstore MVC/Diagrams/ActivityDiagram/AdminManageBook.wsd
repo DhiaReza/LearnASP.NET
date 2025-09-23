@@ -1,0 +1,20 @@
+@startuml
+start
+:Admin logs in;
+:Open Manage Books Page;
+repeat
+  :Choose Action (Add / Edit / Delete);
+  if (Add Book?) then (yes)
+    :Enter Book Details;
+    :Save Book;
+  else if (Edit Book?) then (yes)
+    :Select Book;
+    :Update Details;
+    :Save Changes;
+  else (Delete Book)
+    :Select Book;
+    :Confirm Deletion;
+  endif
+repeat while (More actions?)
+stop
+@enduml

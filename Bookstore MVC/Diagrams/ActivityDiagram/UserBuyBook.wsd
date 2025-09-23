@@ -1,0 +1,15 @@
+@startuml
+start
+:Login/Register;
+:Browse/Search Books;
+:Select Book;
+:Add to Cart;
+repeat
+  :Continue Shopping?;
+repeat while (Yes)
+:Proceed to Checkout;
+:Enter Payment & Confirm;
+:System Processes Payment;
+:Generate Order Confirmation;
+stop
+@enduml

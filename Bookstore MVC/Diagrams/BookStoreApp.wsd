@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+actor User
+actor Admin
+actor Staff
+
+rectangle BookstoreApp {
+    (Register/Login) as UC1
+    (Browse/Search Books) as UC2
+    (Add to Cart) as UC3
+    (Checkout / Buy Book) as UC4
+    (Manage Account) as UC5
+    
+    (Manage Books) as UC6
+    (Manage Accounts) as UC7
+    (View Reports) as UC8
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+
+Staff --> UC6
+@enduml

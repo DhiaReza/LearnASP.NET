@@ -1,0 +1,85 @@
+@using Microsoft.AspNetCore.Components.Web
+@{
+    ViewData["Title"] = "Manage Account";
+}
+@model List<Bookstore_MVC.Models.AccountManagementDTO>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+                <div class="row">
+            <div>
+                <a href="/" class="btn btn-primary">Back</a>
+            </div>
+            <div class="pt-3">
+                <h4>
+                    Manage Accounts
+                </h4>
+            </div>
+            @if(@Model.Count > 0){
+            <div>
+                <div>
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-info">@TempData["Message"]</div>
+                    }
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var account in Model)
+                        {
+                            <tr>
+                                <input type="hidden" name="Id" value="@account.Id" />
+
+                                <td>
+                                    <input type="text" name="Username" class="form-control" value="@account.Username" />
+                                </td>
+                                <td>
+                                    <input type="email" name="Email" class="form-control" value="@account.Email" />
+                                </td>
+                                <td>
+                                    <input type="text" name="PhoneNumber" class="form-control" value="@account.PhoneNumber" />
+                                </td>
+                                <td>
+                                    <select name="Role" class="form-select">
+                                        <option value="Staff" selected="@(account.Role=="Staff")">Staff</option>
+                                        <option value="Admin" selected="@(account.Role=="Admin")">Admin</option>
+                                        <option value="Customer" selected="@(account.Role=="Customer")">Customer</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a asp-controller="Admin" asp-action="EditAccount" asp-route-id="@account.Id" class="btn btn-primary btn-sm">Edit</a>
+                                    <button type="submit" name="action" value="delete" class="btn btn-danger btn-sm">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }else{
+            <div class="mx-auto">
+                <h4 class="text-center">No account registered</h4>
+            </div>
+        }
+        </div>
+    </div>
+</body>

@@ -1,0 +1,16 @@
+@startuml
+start
+:Login;
+:Go to Account Settings;
+if (Edit Profile?) then (yes)
+  :Update Info (username/email/phone);
+  :Save Changes;
+else if (Change Password?) then (yes)
+  :Enter Old Password;
+  :Enter New Password;
+  :Save New Password;
+else
+  :Logout;
+endif
+stop
+@enduml

@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 @{
-    ViewData["Title"] = "Add Book Data";
+    ViewData["Title"] = "Add Book";
 }
-@model Bookstore_MVC.Models.Book
+@model Bookstore_MVC.Models.AddBookDTO
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,12 +24,12 @@
             <div>
                 <a href="/" class="btn btn-primary">Back</a>
             </div>
-            <form asp-controller="book" asp-action="Add" enctype="multipart/form-data" method="post">
+            <form asp-controller="Admin" asp-action="AddBook" enctype="multipart/form-data" method="post">
+                @Html.AntiForgeryToken()
                 <div class="form-group py-1">
                     <label asp-for="Author" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
                         <input asp-for="Author" class="form-control" placeholder="Enter book author" />
-                        <!-- Displays validation error -->
                         <span asp-validation-for="Author" class="text-danger"></span>
                     </div>
                 </div>
@@ -37,23 +37,45 @@
                     <label asp-for="Title" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Title" class="form-control" placeholder="Enter book title" />
-                            <!-- Displays validation error -->
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
-                </div>
+                </div> 
                 <div class="form-group py-1">
                     <label asp-for="Description" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <input asp-for="Description" class="form-control" placeholder="Enter book Description" />
-                            <!-- Displays validation error -->
+                            <textarea asp-for="Description" class="form-control" placeholder="Enter book description"></textarea>
                             <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                </div>
+                <div class="form-group py-1">
+                    <label asp-for="Genres" class="col-sm-2 col-form-label"></label>
+                    @foreach (var genre in Model.GenreNames)
+                    {
+                        <div>
+                            <input type="checkbox" name="SelectedGenreIds" value="@genre.Id"/>
+                            <label asp-for="SelectedGenreIds" class="col-sm-2 col-form-label text-capitalize">@genre.Name</label>
+                        </div>
+                    }
+                    <span asp-validation-for="SelectedGenreIds" class="text-danger"></span>
+                </div>
+                <div class="form-group py-1">
+                    <label asp-for="ISBN" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input type="ISBN" asp-for="ISBN" class="form-control" placeholder="Enter book ISBN" />
+                            <span asp-validation-for="ISBN" class="text-danger"></span>
+                        </div>
+                </div>
+                <div class="form-group py-1">
+                    <label asp-for="Stock" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input type="number" asp-for="Stock" class="form-control" placeholder="Enter book stock" />
+                            <span asp-validation-for="Stock" class="text-danger"></span>
                         </div>
                 </div>
                 <div class="form-group py-1">
                     <label asp-for="Price" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <input type="number" asp-for="Price" class="form-control" pattern="[0-9]" placeholder="Enter book price" />
-                            <!-- Displays validation error -->
+                            <input type="number" step="0.01" asp-for="Price" class="form-control" placeholder="Enter book price" />
                             <span asp-validation-for="Price" class="text-danger"></span>
                         </div>
                 </div>
@@ -62,14 +84,12 @@
                         <div class="col-sm-10">
                                         <input asp-for="ImageFile" type="file" class="form-control-file"
                    accept=".jpg,.jpeg,.png,.gif" />
-                            <!-- Displays validation error -->
                             <span asp-validation-for="ImageData" class="text-danger"></span>
                         </div>
                 </div>
-                <!-- Submit Button -->
                 <div class="form-group pt-2">
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-success">Add book</button>
+                        <button type="submit" class="btn btn-success">Edit Book</button>
                     </div>
                 </div>
             </form>
@@ -77,13 +97,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    async function AddBook(){
-        const author = document.getElementById
-
-        const response = await fetch('/book/addbook/',{
-            method: 'POST'
-        })
-    }
-</script>

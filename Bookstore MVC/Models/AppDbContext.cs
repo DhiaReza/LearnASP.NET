@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Bookstore_MVC.Models
 {
@@ -10,7 +11,10 @@ namespace Bookstore_MVC.Models
             : base(options)
         {
         }
-
+        public DbSet<BookGenre> Genre { get; set; }
         public DbSet<Book> Book { get; set; }
+
+        [Required(ErrorMessage = "Please add date created")]
+        public DateTime DateCreated { get; set; }
     }
 }

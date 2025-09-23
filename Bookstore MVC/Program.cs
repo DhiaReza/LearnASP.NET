@@ -7,9 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    
+builder.Services.AddAntiforgery(options => options.HeaderName = "XSRF-TOKEN");
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>();
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -51,7 +54,10 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Book}/{action=Index}/{id?}");
+    pattern: "{controller=Customer}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "Admin",
+    pattern: "{controller=Admin}/{action=Index}/{id?}");
 app.MapStaticAssets();
 
 using (var scope = app.Services.CreateScope())
@@ -62,6 +68,33 @@ using (var scope = app.Services.CreateScope())
 
     await SeedRolesAndAdmin(userManager, roleManager);
 }
+app.Use(async (context, next) =>
+{
+    if (context.User.Identity?.IsAuthenticated == true && context.Request.Path == "/")
+    {
+        var userManager = context.RequestServices.GetRequiredService<UserManager<IdentityUser>>();
+        var user = await userManager.GetUserAsync(context.User);
+        var roles = await userManager.GetRolesAsync(user);
+
+        if (roles.Contains("Admin"))
+        {
+            context.Response.Redirect("/Admin/Index");
+            return;
+        }
+        // if (roles.Contains("Staff"))
+        // {
+        //     context.Response.Redirect("/Staff/Index");
+        //     return;
+        // }
+        // if (roles.Contains("User"))
+        // {
+        //     context.Response.Redirect("/Customer/Index");
+        //     return;
+        // }
+    }
+
+    await next();
+});
 
 app.Run();
 

@@ -37,10 +37,7 @@ public class BookController : Controller
         _logger.LogInformation($"Opening book details of {book}");
         return View(book);
     }
-    public IActionResult Add()
-    {
-        return View();
-    }
+
 
     // Tested, returns all books listed, return emprty if empty
     [HttpGet]
@@ -56,33 +53,7 @@ public class BookController : Controller
         return Ok(books);
     }
 
-    // Tested, all possible return tested correctly
-    [HttpPost]
-    public async Task<ActionResult> Add(Book bookdata)
-    {
-        if (!ModelState.IsValid)
-        {
-            foreach (var entry in ModelState.Where(e => e.Value.Errors.Count > 0))
-            {
-                foreach (var error in entry.Value.Errors)
-                {
-                    _logger.LogWarning("Validation error on field '{Field}': {ErrorMessage}", entry.Key, error.ErrorMessage);
-                }
-            }
-            return View(bookdata);
-        }
-        if (bookdata.ImageFile != null)
-        {
-            using var ms = new MemoryStream();
-            await bookdata.ImageFile.CopyToAsync(ms);
-            bookdata.ImageData = ms.ToArray();
-            bookdata.ImageContentType = bookdata.ImageFile.ContentType;
-        }
-        _logger.LogInformation($"Add book :\n{bookdata.Title}\n{bookdata.Author}\n{bookdata.Price}");
-        _context.Add(bookdata);
-        await _context.SaveChangesAsync();
-        return RedirectToAction("Index");;
-    }
+
     public IActionResult GetImage(int id)
     {
         var product = _context.Book.Find(id);
@@ -112,44 +83,7 @@ public class BookController : Controller
         _logger.LogInformation($"Book been found\nBook Tittle : {bookdetails.Title}\nBook Author: {bookdetails.Author}\nBook Price: {bookdetails.Price}");
         return Ok(bookdetails);
     }
-    // GET: Book/Edit/27
-    [HttpGet]
-    public async Task<IActionResult> Edit(int id)
-    {
-        var book = await _context.Book.FindAsync(id);
-        if (book == null)
-        {
-            return NotFound();
-        }
-        return View(book);
-    }
 
-// POST: Book/Edit/27
-[HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> Edit(Book book)
-{
-    if (!ModelState.IsValid)
-    {
-        return View(book);
-    }
-
-    var existingBook = await _context.Book.FindAsync(book.Id);
-    if (existingBook == null)
-    {
-        return NotFound();
-    }
-
-    existingBook.Author = book.Author;
-    existingBook.Title = book.Title;
-    existingBook.Price = book.Price;
-    existingBook.Description = book.Description;
-    existingBook.ImageData = book.ImageData;
-
-    await _context.SaveChangesAsync();
-
-    return RedirectToAction(nameof(Index));
-}
 
     //tested, delete book by id
     [HttpDelete]

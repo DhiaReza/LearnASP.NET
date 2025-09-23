@@ -19,7 +19,13 @@
       <div class="pb-2">
         <h7 class="text-capitalize">by @Model.Author</h4>
       </div>
-      @if(@Model.Description == null || Model.Description ==""){
+      <div>
+        <p>$@Model.Price</p>
+      </div>
+      <div>
+        <p>@Model.Stock in stock</p>
+      </div>
+      @* @if(@Model.Description == null || Model.Description ==""){
         <div  class="text-muted">
           <p>No Description Available</p>
         </div>
@@ -27,11 +33,11 @@
         <div>
           <p>@Model.Description</p>
         </div>
-      }
+      } *@
   </div>
   <div class="card-footer">
           <div class="btn-group-justified mx-2 px-1"></div>
-      <a asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-      <button type="button" class="btn btn-danger" data-id="@Model.Id" onclick="DeleteBook(this)">Delete</button>
+      <a asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Cart</a>
+      <button type="button" class="btn btn-danger" data-id="@Model.Id" onclick="AddToCart(this)">Details</button>
   </div>
 </div>

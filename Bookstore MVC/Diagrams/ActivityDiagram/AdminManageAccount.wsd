@@ -1,0 +1,20 @@
+@startuml
+start
+:Admin logs in;
+:Open Manage Accounts Page;
+repeat
+  :Choose Action (Add / Edit / Delete / Reset Password);
+  if (Add Account?) then (yes)
+    :Enter Account Details (username, email, role);
+    :Save Account;
+  else if (Edit Account?) then (yes)
+    :Select Account;
+    :Update Info (name, email, phone, role, password);
+    :Save Changes;
+  else (Delete Account?) then (yes)
+    :Select Account;
+    :Confirm Deletion;
+  endif
+repeat while (More actions?)
+stop
+@enduml

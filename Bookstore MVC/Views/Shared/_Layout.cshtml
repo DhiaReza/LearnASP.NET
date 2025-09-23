@@ -13,16 +13,31 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Book" asp-action="Index">Bookstore_MVC</a>
+                @if(User.IsInRole("Admin")){
+                    <a class="navbar-brand" asp-area="" asp-controller="Admin" asp-action="Index">Bookstore_MVC</a>
+                }else{
+                    <a class="navbar-brand" asp-area="" asp-controller="Book" asp-action="Index">Bookstore_MVC</a>
+                }
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Home</a>
-                        </li>
+
+                        @if(User.IsInRole("Admin") ==true){
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Manage Book</a>
+                            </li>
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="ManageAccount">Manage Accounts</a>
+                            </li>
+                        }else{
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Home</a>
+                            </li>
+                        }
                     </ul>
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
                     @if(User.Identity.Name == null){
@@ -33,18 +48,9 @@
                                 <a class="nav-link text-dark end-0" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
                     } else{
-                        if(User.IsInRole("Admin")){
-                            <li>
-                                <a class="nav-link text-dark end-0" asp-area="" asp-controller="Account" asp-action="Manage">Manage</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark end-0" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
-                            </li>
-                        }else{
-                            <li class="nav-item">
-                                <a class="nav-link text-dark end-0" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
-                            </li>
-                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark end-0" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                        </li>
                     }
                     </ul>
                 </div>
