@@ -54,7 +54,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Customer}/{action=Index}/{id?}");
+    pattern: "{controller=Book}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "Admin",
     pattern: "{controller=Admin}/{action=Index}/{id?}");

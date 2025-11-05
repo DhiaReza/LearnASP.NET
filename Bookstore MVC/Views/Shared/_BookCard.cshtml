@@ -1,43 +1,41 @@
 @model Bookstore_MVC.Models.Book
 
-<div class="card h-100">
-  <div class="card-body">
-    <div class="py-2">
-      @if (@Model.ImageData != null)
-      {
-          <!-- Call your controller action -->
-          <img class="card-img-top img-fluid mx-auto fixed-image rounded" style="height:200px;object-fit:contain;width:100%;" src="@Url.Action("GetImage", "Book", new { id = Model.Id })" alt="@Model.Title"/>
-      }
-      else
-      {
-          <img class="card-img-top img-fluid mx-auto fixed-image rounded" style="height:200px;object-fit:contain;width:100%;" src="/img/NOT-AVAILABLE.png" alt="Image not available"/>
-      }
-    </div>
-      <div>
-        <h6 class="py-2 text-capitalize fw-bold" >@Model.Title</h4>
-      </div>
-      <div class="pb-2">
-        <h7 class="text-capitalize">by @Model.Author</h4>
-      </div>
-      <div>
+<div class="card h-100 shadow-sm transition-all">
+    <div class="card-body">
+        <div class="py-2">
+            @if (@Model.ImageData != null)
+            {
+                <img class="card-img-top img-fluid mx-auto fixed-image rounded" 
+                      style="height:200px; object-fit:contain; width:100%;" 
+                      src="@Url.Action("GetImage", "Book", new { id = Model.Id })" 
+                      alt="@Model.Title" />
+            }
+            else
+            {
+                <img class="card-img-top img-fluid mx-auto fixed-image rounded" 
+                      style="height:200px; object-fit:contain; width:100%;" 
+                      src="/img/NOT-AVAILABLE.png" 
+                      alt="Image not available" />
+            }
+        </div>
+        <h6 class="py-2 text-capitalize fw-bold">@Model.Title</h6>
+        <h7 class="text-capitalize">by @Model.Author</h7>
         <p>$@Model.Price</p>
-      </div>
-      <div>
         <p>@Model.Stock in stock</p>
-      </div>
-      @* @if(@Model.Description == null || Model.Description ==""){
-        <div  class="text-muted">
-          <p>No Description Available</p>
-        </div>
-      }else{
-        <div>
-          <p>@Model.Description</p>
-        </div>
-      } *@
-  </div>
-  <div class="card-footer">
-          <div class="btn-group-justified mx-2 px-1"></div>
-      <a asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Cart</a>
-      <button type="button" class="btn btn-danger" data-id="@Model.Id" onclick="AddToCart(this)">Details</button>
-  </div>
+        <!-- Description (optional) -->
+        @if (string.IsNullOrEmpty(Model.Description))
+        {
+            <div class="text-muted">
+                <p>No Description Available</p>
+            </div>
+        }
+        else
+        {
+            <p>@Model.Description</p>
+        }
+      <a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Id" class="stretched-link"></a>
+    </div>
+    <div class="card-footer" style="z-index:2;position:relative;">
+        <a asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary" style="position: relative;">Add to cart</a>
+    </div>
 </div>

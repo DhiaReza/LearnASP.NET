@@ -142,6 +142,10 @@ namespace Bookstore_MVC.Controllers
             {
                 await _signInManager.SignInAsync(newUser, isPersistent: true);
             }
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("ManageAccount", "Admin");
+            }
             return RedirectToAction("Index", "Book");
         }
 

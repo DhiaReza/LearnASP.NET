@@ -42,6 +42,6 @@ namespace Bookstore_MVC.Models
         public List<int> SelectedGenreIds { get; set; } = new List<int>();
 
         // To show checkboxes in the view
-        public List<BookGenre> GenreCheckBox { get; set; } = new List<BookGenre>();
+        public List<BookGenre> GenreNames { get; set; } = new List<BookGenre>();
     }
 }

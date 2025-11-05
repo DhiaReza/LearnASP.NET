@@ -74,9 +74,22 @@ namespace Bookstore_MVC
         public async Task<IActionResult> EditAccount(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
-            return View("EditAccount", user);
-        }
+            if (user == null) return NotFound();
 
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var dto = new EditAccountDTO
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Role = roles.FirstOrDefault() ?? "" // assume one role
+                // Password fields stay empty until user fills them in
+            };
+
+            return View(dto);
+        }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -271,71 +284,99 @@ namespace Bookstore_MVC
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public async Task<IActionResult> EditBook(int id)
+[HttpGet]
+public async Task<IActionResult> EditBook(int id)
+{
+    var book = await _context.Book
+        .Include(b => b.Genres) // load genres
+        .FirstOrDefaultAsync(b => b.Id == id);
+
+    if (book == null)
+    {
+        return NotFound();
+    }
+
+    var dto = new EditBookDTO
+    {
+        Id = book.Id,
+        Title = book.Title,
+        Author = book.Author,
+        Price = book.Price,
+        ISBN = book.ISBN,
+        Stock = book.Stock,
+        Description = book.Description,
+        DateCreated = book.DateCreated,
+        DateEdited = book.DateEdited,
+        ImageData = book.ImageData,
+        ImageContentType = book.ImageContentType,
+
+        // Pre-check selected genres
+        SelectedGenreIds = book.Genres.Select(g => g.Id).ToList(),
+
+        // All available genres for checkbox list
+        GenreNames = await _context.Genre.ToListAsync()
+    };
+
+    return View(dto);
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> EditBook(EditBookDTO dto)
+{
+    if (!ModelState.IsValid)
+    {
+        // reload genres if invalid
+        dto.GenreNames = await _context.Genre.ToListAsync();
+        return View(dto);
+    }
+
+    var existingBook = await _context.Book
+        .Include(b => b.Genres)
+        .FirstOrDefaultAsync(b => b.Id == dto.Id);
+
+    if (existingBook == null)
+    {
+        return NotFound();
+    }
+
+    // update scalar fields
+    existingBook.Author = dto.Author;
+    existingBook.Title = dto.Title;
+    existingBook.Price = dto.Price;
+    existingBook.Description = dto.Description;
+    existingBook.ISBN = dto.ISBN;
+    existingBook.Stock = dto.Stock;
+
+    // handle image
+    if (dto.ImageFile != null)
+    {
+        using var ms = new MemoryStream();
+        await dto.ImageFile.CopyToAsync(ms);
+        existingBook.ImageData = ms.ToArray();
+        existingBook.ImageContentType = dto.ImageFile.ContentType;
+    }
+
+    // update genres
+    existingBook.Genres.Clear(); // remove old ones
+    if (dto.SelectedGenreIds != null && dto.SelectedGenreIds.Any())
+    {
+        var selectedGenres = await _context.Genre
+            .Where(g => dto.SelectedGenreIds.Contains(g.Id))
+            .ToListAsync();
+
+        foreach (var genre in selectedGenres)
         {
-            var book = await _context.Book.FindAsync(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-
-            var dto = new EditBookDTO
-            {
-                Id = book.Id,
-                Title = book.Title,
-                Author = book.Author,
-                Price = book.Price,
-                Genres = book.Genres,   // careful: this is still entity collection, fine if read-only
-                ISBN = book.ISBN,
-                Stock = book.Stock,
-                Description = book.Description,
-                DateCreated = book.DateCreated,
-                DateEdited = book.DateEdited,
-                ImageData = book.ImageData,
-                ImageContentType = book.ImageContentType
-            };
-
-            return View(dto); // 👈 matches @model EditBookDTO
+            existingBook.Genres.Add(genre);
         }
+    }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditBook(EditBookDTO dto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(dto);
-            }
+    existingBook.DateEdited = DateTime.Now;
 
-            var existingBook = await _context.Book.FindAsync(dto.Id);
-            if (existingBook == null)
-            {
-                return NotFound();
-            }
+    await _context.SaveChangesAsync();
+    return RedirectToAction(nameof(Index));
+}
 
-            // update scalar fields
-            existingBook.Author = dto.Author;
-            existingBook.Title = dto.Title;
-            existingBook.Price = dto.Price;
-            existingBook.Description = dto.Description;
-            existingBook.ISBN = dto.ISBN;
-            existingBook.Stock = dto.Stock;
-
-            // handle image
-            if (dto.ImageFile != null)
-            {
-                using var ms = new MemoryStream();
-                await dto.ImageFile.CopyToAsync(ms);
-                existingBook.ImageData = ms.ToArray();
-                existingBook.ImageContentType = dto.ImageFile.ContentType;
-            }
-
-            existingBook.DateEdited = DateTime.Now;
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
         public IActionResult GetImage(int id)
         {
             var product = _context.Book.Find(id);

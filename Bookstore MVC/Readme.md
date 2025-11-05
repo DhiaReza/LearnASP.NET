@@ -56,7 +56,7 @@ Make APIs for accountmanagement1
 
 ---
 
-## 🟡 **Milestone 3 – Book Management (CRUD)** ON THE MAKING
+## 🟡 **Milestone 3 – Book Management (CRUD)** DONE
 
 **Goal:** Admin/Staff can manage the book catalog.
 
@@ -68,14 +68,13 @@ Make APIs for accountmanagement1
 
 ✅ *End of Milestone:* Admin/Staff can add/manage books.
 
-Next :
-Create separate controller and view for each user (admin, staff and customer)
-1. Create Admin controller and View
----
+Between Milestone :
+change tempdata on manageaccount and controller according to action. Red for delete, blue for info etc
+create details page for book
 
-## 🟠 **Milestone 4 – Catalog & Search**
+## 🟠 **Milestone 4 – Catalog & Search** Future
 
-**Goal:** Customers can browse & find books.
+**Goal:** Customers can browse & find books. 
 
 * [ ] Public **Books page**: show grid of books with images, title, price.
 * [ ] Add **search bar** (Title, Author, ISBN).
@@ -84,6 +83,8 @@ Create separate controller and view for each user (admin, staff and customer)
 * [ ] Pagination (e.g., 12 books per page).
 
 ✅ *End of Milestone:* Customers can browse/search/filter books.
+
+Next :
 
 ---
 

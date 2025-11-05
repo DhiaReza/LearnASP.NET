@@ -20,74 +20,77 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="container-fluid">
-            <form asp-controller="Admin" asp-action="AddBook" method="get" style="display:inline;">
-                <button type="submit" class="btn btn-success mb-3">Add Book</button>
-            </form>
-            <form asp-controller="Admin" asp-action="AddGenre" method="get" style="display:inline;">
-                <button type="submit" class="btn btn-success mb-3">Add Genre</button>
-            </form>
-        </div>
-        <div
-            class="table-responsive"
-        >
-            <table
-                class="table table-hover text-center"
+        <div class="row">
+            <div class="pt-3">
+                <h4>
+                    @ViewData["Title"]
+                </h4>
+            </div>
+            <div class="container-fluid">
+                <form asp-controller="Admin" asp-action="AddBook" method="get" style="display:inline;">
+                    <button type="submit" class="btn btn-success mb-3">Add Book</button>
+                </form>
+            </div>
+            <div
+                class="table-responsive"
             >
-                <thead class="table-active text-center">
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>ISBN</th>
-                        <th>Genre</th>
-                        <th>Stock</th>
-                        <th>Price</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="">
-                @{ int rowNo = 1; }
-                @foreach(var book in @Model){
-                    <tr class="">
-                        <td>@rowNo</td>
-                        <td>@book.Title</td>
-                        <td>@book.Author</td>
-                        <td>@book.ISBN</td>
-                            @if(book.Genres.Count() == 0){
-                                <td>No Genre</td>
-                            }else{
+                <table
+                    class="table table-hover text-center"
+                >
+                    <thead class="table-active text-center">
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN</th>
+                            <th>Genre</th>
+                            <th>Stock</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                    @{ int rowNo = 1; }
+                    @foreach(var book in @Model){
+                        <tr class="">
+                            <td>@rowNo</td>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.ISBN</td>
+                                @if(book.Genres.Count() == 0){
+                                    <td>No Genre</td>
+                                }else{
+                                <td>
+                                    <ul class="genre-list list-unstyled">
+                                        @foreach (var genre in book.Genres)
+                                        {
+                                            <li>@genre.Name</li>
+                                        }
+                                    </ul>
+                                </td>
+                                }
+                            <td>@book.Stock</td>
+                            <td>@book.Price</td>
                             <td>
-                                <ul class="genre-list list-unstyled">
-                                    @foreach (var genre in book.Genres)
-                                    {
-                                        <li>@genre.Name</li>
-                                    }
-                                </ul>
+                                <div>
+                                    <form asp-controller="Admin" asp-action="EditBook" asp-route-id="@book.Id" method="get" style="display:inline;">
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </form>
+                                    <form asp-controller="Admin" asp-action="DeleteBook" asp-route-id="@book.Id" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </td>
-                            }
-                        <td>@book.Stock</td>
-                        <td>@book.Price</td>
-                        <td>
-                            <div>
-                                <form asp-controller="Admin" asp-action="EditBook" asp-route-id="@book.Id" method="get" style="display:inline;">
-                                    <button type="submit" class="btn btn-primary">Edit</button>
-                                </form>
-                                <form asp-controller="Admin" asp-action="DeleteBook" asp-route-id="@book.Id" method="post" style="display:inline;">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    rowNo++;
-                }
-                </tbody>
-                <tfoot>
-                    
-                </tfoot>
-            </table>
+                        </tr>
+                        rowNo++;
+                    }
+                    </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
+                </table>
+            </div>
         </div>
-        
     </div>
 </body>
 </html>

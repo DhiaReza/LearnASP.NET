@@ -17,13 +17,14 @@
 </head>
 <body>
     <div class="container w-90">
-        <div class="pt-5">
+                <div>
+                <a href="/" class="btn btn-primary">Back</a>
+            </div>
+        <div class="pt-3">
             <h1>@ViewData["Title"]</h1>
         </div>
         <div class="row">
-            <div>
-                <a href="/" class="btn btn-primary">Back</a>
-            </div>
+
             <form asp-controller="Admin" asp-action="AddGenre" enctype="multipart/form-data" method="post">
                 @Html.AntiForgeryToken()
                 <div class="form-group py-1">

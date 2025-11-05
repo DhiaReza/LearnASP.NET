@@ -19,7 +19,11 @@
     <div class="container-fluid">
                 <div class="row">
             <div>
+            @if(User.IsInRole("Admin") == true){
+                <a href="/Admin/ManageAccount" class="btn btn-primary">Back</a>
+            }else{
                 <a href="/" class="btn btn-primary">Back</a>
+            }
             </div>
             <div class="pt-3">
                 <h4>

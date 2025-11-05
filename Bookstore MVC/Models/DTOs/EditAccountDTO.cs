@@ -4,7 +4,7 @@ namespace Bookstore_MVC.Models
 {
     public class EditAccountDTO
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required(ErrorMessage = "Username is required.")]
         [StringLength(100, MinimumLength = 4, ErrorMessage = "Username must be at least 4 characters long.")]

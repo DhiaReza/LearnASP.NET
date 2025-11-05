@@ -1,4 +1,5 @@
 @using Microsoft.AspNetCore.Components.Web
+@using Microsoft.IdentityModel.Tokens
 @{
     ViewData["Title"] = "Manage Account";
 }
@@ -17,14 +18,16 @@
 </head>
 <body>
     <div class="container-fluid">
-                <div class="row">
-            <div>
-                <a href="/" class="btn btn-primary">Back</a>
-            </div>
+        <div class="row">
             <div class="pt-3">
                 <h4>
-                    Manage Accounts
+                    @ViewData["Title"]
                 </h4>
+            </div>
+            <div class="container-fluid">
+                <form asp-controller="Account" asp-action="Register" method="get" style="display:inline;">
+                    <button type="submit" class="btn btn-success mb-3">Register Account</button>
+                </form>
             </div>
             @if(@Model.Count > 0){
             <div>
@@ -34,10 +37,11 @@
                         <div class="alert alert-info">@TempData["Message"]</div>
                     }
                 </div>
-                <table class="table">
+                <table class="table text-center">
                     <thead>
                         <tr>
-                            <th>Username</th>
+                            <th>#</th>
+                            <th class="text-start">Username</th>
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Role</th>
@@ -45,32 +49,59 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @{ int rowNo = 1; }
                         @foreach (var account in Model)
                         {
                             <tr>
-                                <input type="hidden" name="Id" value="@account.Id" />
+                                <td>
+                                    @rowNo
+                                </td>
+                                <td class="text-start">
+                                    @account.Username
+                                </td>
+                                @if(string.IsNullOrEmpty(@account.Email)){
+                                <td>
+                                    -
+                                </td>
+                                }else{
+                                <td>
+                                    @account.Email
+                                </td>
+                                }
+                                @if(string.IsNullOrEmpty(@account.PhoneNumber)){
+                                <td>
+                                    -
+                                </td>
+                                }else{
+                                <td>
+                                    @account.PhoneNumber
+                                </td>
+                                }
+                                <td>
+                                    @account.Role
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a asp-controller="Admin"
+                                        asp-action="EditAccount"
+                                        asp-route-id="@account.Id"
+                                        class="btn btn-primary btn-sm">
+                                        Edit
+                                        </a>
 
-                                <td>
-                                    <input type="text" name="Username" class="form-control" value="@account.Username" />
-                                </td>
-                                <td>
-                                    <input type="email" name="Email" class="form-control" value="@account.Email" />
-                                </td>
-                                <td>
-                                    <input type="text" name="PhoneNumber" class="form-control" value="@account.PhoneNumber" />
-                                </td>
-                                <td>
-                                    <select name="Role" class="form-select">
-                                        <option value="Staff" selected="@(account.Role=="Staff")">Staff</option>
-                                        <option value="Admin" selected="@(account.Role=="Admin")">Admin</option>
-                                        <option value="Customer" selected="@(account.Role=="Customer")">Customer</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <a asp-controller="Admin" asp-action="EditAccount" asp-route-id="@account.Id" class="btn btn-primary btn-sm">Edit</a>
-                                    <button type="submit" name="action" value="delete" class="btn btn-danger btn-sm">Delete</button>
+                                        <form asp-controller="Admin"
+                                            asp-action="DeleteAccount"
+                                            asp-route-id="@account.Id"
+                                            method="post"
+                                            class="m-0 p-0"
+                                            onsubmit="return confirm('Are you sure you want to delete this account?');">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
+                            rowNo++;
                         }
                     </tbody>
                 </table>
