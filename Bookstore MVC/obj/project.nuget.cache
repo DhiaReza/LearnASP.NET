@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "BOUa6+vCxKU=",
+  "dgSpecHash": "h6Ln0NyKOgc=",
   "success": true,
   "projectFilePath": "C:\\Users\\fahre\\OneDrive - Universitas Negeri Jakarta (UNJ)\\Documents\\Perkuliahan\\Personal Projects\\LearnASP.NET\\Bookstore MVC\\Bookstore MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fahre\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\fahre\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\fahre\\.nuget\\packages\\bootstrap.sass\\5.3.8\\bootstrap.sass.5.3.8.nupkg.sha512",
     "C:\\Users\\fahre\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\fahre\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\fahre\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

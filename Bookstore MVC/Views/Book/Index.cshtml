@@ -20,10 +20,57 @@
 </head>
 <body>
     <div class="container">
-        @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParam })
-        @Html.ActionLink("DateCreated", "Index", new { sortOrder = ViewBag.DateSortParam })
+        <div class="py-2">
+            <div>
+            Sort By
+            </div>
+            <div>
+                <!-- Title -->
+                <a href="@Url.Action("Index", "Book", new { sortOrder = ViewBag.NameSortParam })"
+                class="btn btn-outline-primary align-items-center">
+                    Title
+                    @if (ViewBag.CurrentSort == "name_asc")
+                    {
+                        <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
+                    }
+                    else if (ViewBag.CurrentSort == "name_desc")
+                    {
+                        <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
+                    }
+                </a>
+
+                <!-- Date -->
+                <a href="@Url.Action("Index", "Book", new { sortOrder = ViewBag.DateSortParam })"
+                class="btn btn-outline-primary align-items-center">
+                    Date Published
+                    @if (ViewBag.CurrentSort == "date_asc")
+                    {
+                        <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
+                    }
+                    else if (ViewBag.CurrentSort == "date_desc")
+                    {
+                        <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
+                    }
+                </a>
+
+                <!-- Price -->
+                <a href="@Url.Action("Index", "Book", new { sortOrder = ViewBag.PriceSortParam })"
+                class="btn btn-outline-primary align-items-center">
+                    Price
+                    @if (ViewBag.CurrentSort == "price_asc")
+                    {
+                        <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
+                    }
+                    else if (ViewBag.CurrentSort == "price_desc")
+                    {
+                        <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
+                    }
+                </a>
+            </div>
+        </div>
+
         @if(Model.Count() != 0){
-        <div class="container-fluid">
+        <div>
             <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5 g-3">
             @foreach(var book in Model){
                 <div class="col">
@@ -50,81 +97,5 @@
         </div>
     </div>
 </div>
-<!-- Delete Modal -->
-<div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Notification</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="modalMessage"></div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
-
-<script>
-    async function DeleteBook(button) {
-        const id = button.getAttribute("data-id");
-
-        try {
-            const response = await fetch('/book/deletebook/' + id, {
-                method: 'DELETE'
-            });
-
-            let message = "";
-
-            if (response.status === 204) {
-                message = "Successfully deleted the data";
-            } 
-            else if (response.status === 404) {
-                message = "Data not found";
-            } 
-            else if (response.status === 400) {
-                message = "Bad request: No Id Provided";
-            } 
-            else {
-                message = "Unexpected error occurred";
-            }
-
-            // Show modal with message
-            document.getElementById("modalMessage").innerText = message;
-            const modal = new bootstrap.Modal(document.getElementById("messageModal"));
-            modal.show();
-
-            // Refresh page after 2 seconds
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
-
-        } catch (error) {
-            console.error(error);
-            document.getElementById("modalMessage").innerText = "Error connecting to server";
-            const modal = new bootstrap.Modal(document.getElementById("messageModal"));
-            modal.show();
-
-            setTimeout(() => {
-                window.location.reload();
-            }, 2000);
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-    var editModal = document.getElementById('editmodal');
-    editModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
-
-        var id = button.getAttribute('data-id');
-        var title = button.getAttribute('data-title');
-        var author = button.getAttribute('data-author');
-        var price = button.getAttribute('data-price');
-
-        document.getElementById('bookId').value = id;
-        document.getElementById('bookTitle').value = title;
-        document.getElementById('bookAuthor').value = author;
-        document.getElementById('bookPrice').value = price;
-    });
-});
-</script>

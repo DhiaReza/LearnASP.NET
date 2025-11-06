@@ -2,16 +2,16 @@
 
 <div class="card shadow-sm">
     <div class="card-body">
-        <div class="shadow">
+        <div class="shadow-lg"> 
             @if (@Model.ImageData != null)
             {
-                <img class="card-img-top rounded mx-auto fixed-size-image" 
+                <img class="card-img-top rounded mx-auto fixed-size-image border border-2" 
                       src="@Url.Action("GetImage", "Book", new { id = Model.Id })" 
                       alt="@Model.Title" />
             }
             else
             {
-                <img class="card-img-top rounded mx-auto fixed-size-image" 
+                <img class="card-img-top rounded mx-auto fixed-size-image border border-2" 
                       src="/img/NOT-AVAILABLE.png" 
                       alt="Image not available" />
             }

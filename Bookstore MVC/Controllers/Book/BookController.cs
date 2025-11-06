@@ -18,16 +18,17 @@ public class BookController : Controller
     [HttpGet]
     public async Task<IActionResult> Index(string sortOrder)
     {
+        ViewBag.CurrentSort = sortOrder;
 
         ViewBag.NameSortParam = sortOrder == "name_asc" ? "name_desc" : "name_asc";
         ViewBag.DateSortParam = sortOrder == "date_asc" ? "date_desc" : "date_asc";
+        ViewBag.PriceSortParam = sortOrder == "price_asc" ? "price_desc" : "price_asc";
         
         var books = from book in _context.Book select book;
 
         if (!books.Any())
         {
             _logger.LogInformation("Book is Empty");
-            // You could return a view that shows “No books found” or redirect elsewhere.
             return View(Enumerable.Empty<Book>());   // an empty list still satisfies the model
         }
 
@@ -41,6 +42,12 @@ public class BookController : Controller
                 break;
             case "date_desc":
                 books = books.OrderByDescending(u => u.DateCreated);
+                break;
+            case "price_asc":
+                books = books.OrderBy(u => u.Price);
+                break;
+            case "price_desc":
+                books = books.OrderByDescending(u => u.Price);
                 break;
             default:
                 books = books.OrderBy(u => u.Title); // default ascending

@@ -4,10 +4,11 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Bookstore_MVC</RootNamespace>
+    <RootNamespace>Bookstore</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="bootstrap.sass" Version="5.3.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
