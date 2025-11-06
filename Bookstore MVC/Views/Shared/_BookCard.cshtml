@@ -1,29 +1,26 @@
 @model Bookstore_MVC.Models.Book
 
-<div class="card h-100 shadow-sm transition-all">
+<div class="card shadow-sm">
     <div class="card-body">
-        <div class="py-2">
+        <div class="shadow">
             @if (@Model.ImageData != null)
             {
-                <img class="card-img-top img-fluid mx-auto fixed-image rounded" 
-                      style="height:200px; object-fit:contain; width:100%;" 
+                <img class="card-img-top rounded mx-auto fixed-size-image" 
                       src="@Url.Action("GetImage", "Book", new { id = Model.Id })" 
                       alt="@Model.Title" />
             }
             else
             {
-                <img class="card-img-top img-fluid mx-auto fixed-image rounded" 
-                      style="height:200px; object-fit:contain; width:100%;" 
+                <img class="card-img-top rounded mx-auto fixed-size-image" 
                       src="/img/NOT-AVAILABLE.png" 
                       alt="Image not available" />
             }
         </div>
-        <h6 class="py-2 text-capitalize fw-bold">@Model.Title</h6>
+        <h5 class="text-capitalize fw-bold text-truncate mt-3">@Model.Title</h6>
         <h7 class="text-capitalize">by @Model.Author</h7>
         <p>$@Model.Price</p>
         <p>@Model.Stock in stock</p>
-        <!-- Description (optional) -->
-        @if (string.IsNullOrEmpty(Model.Description))
+        @* @if (string.IsNullOrEmpty(Model.Description))
         {
             <div class="text-muted">
                 <p>No Description Available</p>
@@ -31,8 +28,10 @@
         }
         else
         {
-            <p>@Model.Description</p>
-        }
+            <div class="truncate-multiline">
+                <p class="fs-6">@Model.Description</p>
+            </div>
+        } *@
       <a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Id" class="stretched-link"></a>
     </div>
     <div class="card-footer" style="z-index:2;position:relative;">

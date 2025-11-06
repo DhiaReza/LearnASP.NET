@@ -69,7 +69,6 @@ Make APIs for accountmanagement1
 ✅ *End of Milestone:* Admin/Staff can add/manage books.
 
 Between Milestone :
-change tempdata on manageaccount and controller according to action. Red for delete, blue for info etc
 create details page for book
 
 ## 🟠 **Milestone 4 – Catalog & Search** Future

@@ -87,10 +87,6 @@
             "System.ComponentModel.Annotations": {
               "target": "Package",
               "version": "[5.0.0, )"
-            },
-            "bootstrap": {
-              "target": "Package",
-              "version": "[5.3.8, )"
             }
           },
           "imports": [

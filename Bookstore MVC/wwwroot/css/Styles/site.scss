@@ -1,0 +1,14 @@
+// 1. Import Bootstrap’s functions first
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Override default Bootstrap variables
+$primary: #198754; // change blue to green
+$font-family-sans-serif: 'Poppins', sans-serif;
+
+// 3. Import Bootstrap itself
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// 4. Add your own styles
+body {
+  background-color: $gray-100;
+}

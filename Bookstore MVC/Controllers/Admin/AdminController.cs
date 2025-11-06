@@ -245,6 +245,7 @@ namespace Bookstore_MVC
                 Author = bookdata.Author,
                 Price = bookdata.Price,
                 Description = bookdata.Description,
+                Stock = bookdata.Stock,
                 ISBN = bookdata.ISBN,
                 DateCreated = DateTime.Now,
                 Genres = _context.Genre

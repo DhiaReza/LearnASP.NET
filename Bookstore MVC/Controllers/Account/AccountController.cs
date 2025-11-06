@@ -39,7 +39,7 @@ namespace Bookstore_MVC.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginDTO user)
         {
             var username = User.Identity.Name;
@@ -49,7 +49,7 @@ namespace Bookstore_MVC.Controllers
             }
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Invalid login attempt");
+                ModelState.AddModelError("", "Invalid login attempt");  
                 return View(user);
             }
             var result = await _signInManager.PasswordSignInAsync(user.Username, user.Password, user.Rememberme, lockoutOnFailure: false);

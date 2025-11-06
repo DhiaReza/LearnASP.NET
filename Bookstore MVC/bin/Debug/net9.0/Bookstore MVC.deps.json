@@ -16,8 +16,7 @@
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.3",
           "Microsoft.Extensions.Configuration": "9.0.8",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "9.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "bootstrap": "5.3.8"
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "Bookstore MVC.dll": {}
@@ -58,7 +57,6 @@
           }
         }
       },
-      "bootstrap/5.3.8": {},
       "Humanizer/2.14.1": {
         "dependencies": {
           "Humanizer.Core.af": "2.14.1",
@@ -2414,13 +2412,6 @@
       "sha512": "sha512-Sf4BoE6Q3jTgFkgBkx7qztYOFELBCo+wQgpYDwal/qJ1unBH73ywPztIJKXBXORRzAeNijsuxhk94h0TIMvfYg==",
       "path": "azure.identity/1.11.4",
       "hashPath": "azure.identity.1.11.4.nupkg.sha512"
-    },
-    "bootstrap/5.3.8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1Pj2iMXZ0c0PVtgtAaxUM/0ptcu1a5nxdiQSUuPAILgwWI/kiY3Jd8A36ugCNF5v2FYzvGDPVlu1P1ZBdJLb/g==",
-      "path": "bootstrap/5.3.8",
-      "hashPath": "bootstrap.5.3.8.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",
