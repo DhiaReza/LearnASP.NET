@@ -21,56 +21,81 @@
 <body>
     <div class="container">
         <div class="py-2">
-            <div>
-            Sort By
-            </div>
-            <div>
-                <!-- Title -->
-                <a href="@Url.Action("Index", "Book", new { sortOrder = ViewBag.NameSortParam })"
-                class="btn btn-outline-primary align-items-center">
-                    Title
-                    @if (ViewBag.CurrentSort == "name_asc")
-                    {
-                        <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
-                    }
-                    else if (ViewBag.CurrentSort == "name_desc")
-                    {
-                        <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
-                    }
-                </a>
+            <div class="row">
+                <div class="col">
+                    <div>Sort By</div>
+                    <div>
+                        <!-- Title -->
+                        <a asp-action="Index"
+                        asp-controller="Book"
+                        asp-route-sortOrder="@ViewBag.NameSortParam"
+                        asp-route-searchString="@ViewBag.CurrentSearchString"
+                        class="btn btn-outline-primary align-items-center">
+                            Title
+                            @if (ViewBag.CurrentSort == "name_asc")
+                            {
+                                <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
+                            }
+                            else if (ViewBag.CurrentSort == "name_desc")
+                            {
+                                <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
+                            }
+                        </a>
 
-                <!-- Date -->
-                <a href="@Url.Action("Index", "Book", new { sortOrder = ViewBag.DateSortParam })"
-                class="btn btn-outline-primary align-items-center">
-                    Date Published
-                    @if (ViewBag.CurrentSort == "date_asc")
-                    {
-                        <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
-                    }
-                    else if (ViewBag.CurrentSort == "date_desc")
-                    {
-                        <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
-                    }
-                </a>
+                        <!-- Date -->
+                        <a asp-action="Index"
+                        asp-controller="Book"
+                        asp-route-sortOrder="@ViewBag.DateSortParam"
+                        asp-route-searchString="@ViewBag.CurrentSearchString"
+                        class="btn btn-outline-primary align-items-center">
+                            Date Published
+                            @if (ViewBag.CurrentSort == "date_asc")
+                            {
+                                <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
+                            }
+                            else if (ViewBag.CurrentSort == "date_desc")
+                            {
+                                <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
+                            }
+                        </a>
 
-                <!-- Price -->
-                <a href="@Url.Action("Index", "Book", new { sortOrder = ViewBag.PriceSortParam })"
-                class="btn btn-outline-primary align-items-center">
-                    Price
-                    @if (ViewBag.CurrentSort == "price_asc")
-                    {
-                        <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
-                    }
-                    else if (ViewBag.CurrentSort == "price_desc")
-                    {
-                        <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
-                    }
-                </a>
+                        <!-- Price -->
+                        <a asp-action="Index"
+                        asp-controller="Book"
+                        asp-route-sortOrder="@ViewBag.PriceSortParam"
+                        asp-route-searchString="@ViewBag.CurrentSearchString"
+                        class="btn btn-outline-primary align-items-center">
+                            Price
+                            @if (ViewBag.CurrentSort == "price_asc")
+                            {
+                                <img src="~/img/bootstrap_icons/arrow-up.svg" alt="Ascending" width="16" height="16" />
+                            }
+                            else if (ViewBag.CurrentSort == "price_desc")
+                            {
+                                <img src="~/img/bootstrap_icons/arrow-down.svg" alt="Descending" width="16" height="16" />
+                            }
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Search -->
+                <div class="col">
+                    <form asp-action="Index" method="get" asp-route-sortOrder="@ViewBag.">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <img src="~/img/bootstrap_icons/search.svg" alt="Search Icon" width="16" height="16" />
+                            </span>
+                            <input type="text" class="form-control" placeholder="Search..." value="@ViewBag.CurrentSearchString" name="searchString">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
         @if(Model.Count() != 0){
         <div>
+            <!-- Book Card -->
             <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5 g-3">
             @foreach(var book in Model){
                 <div class="col">

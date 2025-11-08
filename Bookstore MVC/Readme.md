@@ -71,20 +71,22 @@ Make APIs for accountmanagement1
 Between Milestone :
 create details page for book
 
-## 🟠 **Milestone 4 – Catalog & Search** Future
+## 🟠 **Milestone 4 – Catalog & Search** On
 
 **Goal:** Customers can browse & find books. 
 
 * [ ] Public **Books page**: show grid of books with images, title, price.
 * [ ] Add **search bar** (Title, Author, ISBN).
-* [ ] Add filters: Genre, Price range.
+* [ ] Add filters: Genre, Price range. (Done for customer)
 * [ ] Add sorting: Price low-high, Newest, Popularity.
 * [ ] Pagination (e.g., 12 books per page).
 
 ✅ *End of Milestone:* Customers can browse/search/filter books.
 
 Next :
-
+Add Pagination
+Add sorting and search for admin
+Add filters for everyone
 ---
 
 ## 🟣 **Milestone 5 – Shopping Cart & Orders**

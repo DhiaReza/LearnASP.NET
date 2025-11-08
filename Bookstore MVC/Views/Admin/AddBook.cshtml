@@ -24,7 +24,6 @@
             <h1>@ViewData["Title"]</h1>
         </div>
         <div class="row">
-
             <form asp-controller="Admin" asp-action="AddBook" enctype="multipart/form-data" method="post">
                 @Html.AntiForgeryToken()
                 <div class="form-group py-1">
@@ -81,10 +80,9 @@
                         </div>
                 </div>
                 <div class="form-group py-1">
-                    <label asp-for="ImageData" class="col-sm-2 col-form-label"></label>
+                    <label asp-for="ImageData" class="col-sm-2 col-form-label">Book Cover</label>
                         <div class="col-sm-10">
-                                        <input asp-for="ImageFile" type="file" class="form-control-file"
-                   accept=".jpg,.jpeg,.png,.gif" />
+                            <input asp-for="ImageFile" type="file" class="form-control" accept=".jpg,.jpeg,.png,.gif" />
                             <span asp-validation-for="ImageData" class="text-danger"></span>
                         </div>
                 </div>

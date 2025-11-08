@@ -16,16 +16,26 @@ public class BookController : Controller
         _context = context;
     }
     [HttpGet]
-    public async Task<IActionResult> Index(string sortOrder)
+    public async Task<IActionResult> Index(string? sortOrder, string? searchString)
     {
         ViewBag.CurrentSort = sortOrder;
+
+        ViewBag.CurrentSearchString = searchString;
 
         ViewBag.NameSortParam = sortOrder == "name_asc" ? "name_desc" : "name_asc";
         ViewBag.DateSortParam = sortOrder == "date_asc" ? "date_desc" : "date_asc";
         ViewBag.PriceSortParam = sortOrder == "price_asc" ? "price_desc" : "price_asc";
-        
-        var books = from book in _context.Book select book;
 
+        var books = from book in _context.Book select book;
+        
+        if (!String.IsNullOrEmpty(searchString))
+        {
+            books = books.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()) ||
+                                s.ISBN!.ToUpper().Contains(searchString.ToUpper()) ||
+                                s.Description!.ToUpper().Contains(searchString.ToUpper()) ||
+                                s.Author!.ToUpper().Contains(searchString.ToUpper())
+                                );
+        }
         if (!books.Any())
         {
             _logger.LogInformation("Book is Empty");
